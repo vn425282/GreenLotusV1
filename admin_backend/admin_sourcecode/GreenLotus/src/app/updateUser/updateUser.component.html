@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-md-7">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Cập nhật thông tin quản trị </h4>
+                </div>
+                <div class="content">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tên</label>
+                                    <input type="text" class="form-control border-input" placeholder="Họ và tên" value="" #username>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Địa chỉ</label>
+                                    <input type="text" class="form-control border-input" placeholder="Địa chỉ nhà" value="" #address>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control border-input" placeholder="Email" value="" #email readonly>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Mật khẩu</label>
+                                    <input type="password" class="form-control border-input" placeholder="Mật khẩu" value="" #password>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Quyền hạn</label>
+                                    <select class="form-control border-input" #role>
+                                        <option value="1">Admin ( cấp cao )</option>
+                                        <option value="2">Quản lý</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Trạng thái</label>
+                                    <select class="form-control border-input" #status>
+                                            <option value="1">Đang hoạt động</option>
+                                            <option value="2">Khóa</option>
+                                        </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="back();">
+                                Quay lại
+                            </button>
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="updateUser();">
+                                Lưu thông tin
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<modal #noticeModal>
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">Thông báo</h4>
+    </modal-header>
+    <modal-body>
+        {{ noticeMessage }}
+    </modal-body>
+    <modal-footer [show-default-buttons]="false"></modal-footer>
+</modal>
+<spinner-component [spinnerShow]="flagSpinner"></spinner-component>

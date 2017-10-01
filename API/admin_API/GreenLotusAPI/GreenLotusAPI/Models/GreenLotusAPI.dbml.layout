@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="GreenLotusAPI">
+  <DataContextMoniker Name="/GreenLotusAPIDataContext" />
+  <nestedChildShapes>
+    <classShape Id="91fd57f3-215a-4192-87e3-a473e2c87ade" absoluteBounds="0.75, 4.75, 2, 1.3862939453125005">
+      <DataClassMoniker Name="/GreenLotusAPIDataContext/AboutPartner" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c6e087d8-7c1a-489a-8ef5-c320e6ab4273" absoluteBounds="0.765, 5.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="02542c39-2b5c-412d-a395-02120350878c" absoluteBounds="3.5, 0.875, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/GreenLotusAPIDataContext/User" />
+      <nestedChildShapes>
+        <elementListCompartment Id="dcdea350-ed85-4a19-b571-971da34b9941" absoluteBounds="3.515, 1.335, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="c5cbbc6f-c7a2-4d21-9d1f-252d21da89f9" absoluteBounds="3.75, 4.75, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/GreenLotusAPIDataContext/AboutPeople" />
+      <nestedChildShapes>
+        <elementListCompartment Id="416d15c5-83af-4d06-8e2d-f2680954eea8" absoluteBounds="3.765, 5.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="14b6f924-1f4f-4031-b6d1-b99b97512b73" absoluteBounds="6.75, 0.75, 2, 1.7708968098958329">
+      <DataClassMoniker Name="/GreenLotusAPIDataContext/AboutUs" />
+      <nestedChildShapes>
+        <elementListCompartment Id="af258b8d-19ad-4560-be03-db16f6b649e9" absoluteBounds="6.765, 1.21, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="354d8d13-eead-4db0-91c6-ef3f697c03d2" absoluteBounds="0.75, 1.375, 2, 1.1939925130208335">
+      <DataClassMoniker Name="/GreenLotusAPIDataContext/Role" />
+      <nestedChildShapes>
+        <elementListCompartment Id="5cd68f31-3d88-442b-ae99-0b0f285e7e24" absoluteBounds="0.765, 1.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.75 : 1.97199625651042); (3.5 : 1.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/GreenLotusAPIDataContext/Role/Role_User" />
+      <nodes>
+        <classShapeMoniker Id="354d8d13-eead-4db0-91c6-ef3f697c03d2" />
+        <classShapeMoniker Id="02542c39-2b5c-412d-a395-02120350878c" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

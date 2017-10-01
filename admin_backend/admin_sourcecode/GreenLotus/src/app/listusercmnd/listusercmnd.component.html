@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Danh sách người dùng hiện có</h4>
+                    <!-- <b>* Gõ vào ô tìm kiếm từ bạn muốn và bấm Enter để tìm kiếm</b> -->
+                </div>
+                <div class="header">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="goAddUser();">
+                                    Đăng ký người dùng
+                            </button>
+                        </div>
+                        <!-- <div class="col-md-4">
+                                Tìm kiếm
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <!-- <div class="col-md-3">
+                            <select class="form-control border-input" #sex>
+                                <option value="all">Tất cả</option>
+                                <option value="cus">Khách hàng</option>
+                                <option value="emp">Nhân viên</option>
+                            </select>
+                        </div> -->
+                        <!-- <div class="col-md-4">
+                            <input type="text" class="form-control border-input" placeholder="Tìm kiếm" value="" #search>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="exportExcel();">
+                                Tìm kiếm
+                            </button>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of tableData1.dataRows">
+                                <td *ngFor="let cell of row">
+                                    <div [innerHTML]="cell"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <!-- <div class="col-md-12">
+            <div class="card card-plain">
+                <div class="header">
+                    <h4 class="title">Table on Plain Background</h4>
+                    <p class="category">Here is a subtitle for this table</p>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of tableData2.dataRows">
+                                <td *ngFor="let cell of row">{{cell}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div> -->
+    </div>
+</div>
+<spinner-component [spinnerShow]="flagSpinner"></spinner-component>
