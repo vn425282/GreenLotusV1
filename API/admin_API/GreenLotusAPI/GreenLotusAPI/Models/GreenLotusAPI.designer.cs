@@ -117,6 +117,13 @@ namespace GreenLotusAPI.Models
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addPartner")]
+		public int addPartner([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PictureURL", DbType="NVarChar(MAX)")] string pictureURL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="URLRefercens", DbType="NVarChar(MAX)")] string uRLRefercens, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pictureURL, uRLRefercens, description, lang);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateUser")]
 		public int updateUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_Users", DbType="Int")] System.Nullable<int> iD_Users, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NVarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(200)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(200)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_Role", DbType="Int")] System.Nullable<int> iD_Role, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="Bit")] System.Nullable<bool> status)
 		{
@@ -138,6 +145,20 @@ namespace GreenLotusAPI.Models
 			return ((ISingleResult<checkLoginResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deletePartner")]
+		public int deletePartner([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllPartner")]
+		public ISingleResult<getAllPartnerResult> getAllPartner()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<getAllPartnerResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllUser")]
 		public ISingleResult<getAllUserResult> getAllUser()
 		{
@@ -150,6 +171,13 @@ namespace GreenLotusAPI.Models
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((ISingleResult<getUserByIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updatePartner")]
+		public int updatePartner([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_AboutPartner", DbType="Int")] System.Nullable<int> iD_AboutPartner, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PictureURL", DbType="NVarChar(MAX)")] string pictureURL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="URLRefercens", DbType="NVarChar(MAX)")] string uRLRefercens, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_AboutPartner, pictureURL, uRLRefercens, description, lang);
+			return ((int)(result.ReturnValue));
 		}
 	}
 	
@@ -165,6 +193,10 @@ namespace GreenLotusAPI.Models
 		
 		private string _URLReferences;
 		
+		private string _Description;
+		
+		private string _Lang;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -175,6 +207,10 @@ namespace GreenLotusAPI.Models
     partial void OnPictureURLChanged();
     partial void OnURLReferencesChanging(string value);
     partial void OnURLReferencesChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnLangChanging(string value);
+    partial void OnLangChanged();
     #endregion
 		
 		public AboutPartner()
@@ -238,6 +274,46 @@ namespace GreenLotusAPI.Models
 					this._URLReferences = value;
 					this.SendPropertyChanged("URLReferences");
 					this.OnURLReferencesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang", DbType="NVarChar(50)")]
+		public string Lang
+		{
+			get
+			{
+				return this._Lang;
+			}
+			set
+			{
+				if ((this._Lang != value))
+				{
+					this.OnLangChanging(value);
+					this.SendPropertyChanging();
+					this._Lang = value;
+					this.SendPropertyChanged("Lang");
+					this.OnLangChanged();
 				}
 			}
 		}
@@ -524,6 +600,8 @@ namespace GreenLotusAPI.Models
 		
 		private string _PictureURL;
 		
+		private string _Lang;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -536,6 +614,8 @@ namespace GreenLotusAPI.Models
     partial void OnRoleNameChanged();
     partial void OnPictureURLChanging(string value);
     partial void OnPictureURLChanged();
+    partial void OnLangChanging(string value);
+    partial void OnLangChanged();
     #endregion
 		
 		public AboutPeople()
@@ -619,6 +699,26 @@ namespace GreenLotusAPI.Models
 					this._PictureURL = value;
 					this.SendPropertyChanged("PictureURL");
 					this.OnPictureURLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang", DbType="NVarChar(50)")]
+		public string Lang
+		{
+			get
+			{
+				return this._Lang;
+			}
+			set
+			{
+				if ((this._Lang != value))
+				{
+					this.OnLangChanging(value);
+					this.SendPropertyChanging();
+					this._Lang = value;
+					this.SendPropertyChanged("Lang");
+					this.OnLangChanged();
 				}
 			}
 		}
@@ -1045,6 +1145,104 @@ namespace GreenLotusAPI.Models
 				if ((this._Status != value))
 				{
 					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getAllPartnerResult
+	{
+		
+		private int _ID_AboutPartner;
+		
+		private string _PictureURL;
+		
+		private string _URLReferences;
+		
+		private string _Description;
+		
+		private string _Lang;
+		
+		public getAllPartnerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AboutPartner", DbType="Int NOT NULL")]
+		public int ID_AboutPartner
+		{
+			get
+			{
+				return this._ID_AboutPartner;
+			}
+			set
+			{
+				if ((this._ID_AboutPartner != value))
+				{
+					this._ID_AboutPartner = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PictureURL", DbType="NVarChar(MAX)")]
+		public string PictureURL
+		{
+			get
+			{
+				return this._PictureURL;
+			}
+			set
+			{
+				if ((this._PictureURL != value))
+				{
+					this._PictureURL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_URLReferences", DbType="NVarChar(MAX)")]
+		public string URLReferences
+		{
+			get
+			{
+				return this._URLReferences;
+			}
+			set
+			{
+				if ((this._URLReferences != value))
+				{
+					this._URLReferences = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang", DbType="NVarChar(50)")]
+		public string Lang
+		{
+			get
+			{
+				return this._Lang;
+			}
+			set
+			{
+				if ((this._Lang != value))
+				{
+					this._Lang = value;
 				}
 			}
 		}

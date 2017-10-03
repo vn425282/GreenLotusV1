@@ -47,10 +47,10 @@ namespace GreenLotusAPI.Controllers
         [HttpPost]
         public IHttpActionResult AddUser(User user)
         {
-            var status = db.addUser(user.Password,
+            var status = db.addUser(user.UserName,
                                    user.Address,
                                    user.Email,
-                                   user.UserName,
+                                   user.Password,
                                    user.ID_Role);
             return Ok(new { results = status });
         }
@@ -61,6 +61,38 @@ namespace GreenLotusAPI.Controllers
         {
             var status = db.updateUser(user.ID_Users ,user.UserName, user.Address, user.Password, user.ID_Role, user.Status);
             return Ok(new { results = status });
-        } 
+        }
+
+        [Route("api/partner/getAllPartner")]
+        [HttpGet]
+        public IHttpActionResult GetAllPartner()
+        {
+            var listPartner = db.getAllPartner().ToList<getAllPartnerResult>();
+            return Ok(new { results = listPartner });
+        }
+
+        [Route("api/partner/addPartner")]
+        [HttpPost]
+        public IHttpActionResult AddPartner(AboutPartner p)
+        {
+            var status = db.addPartner(p.PictureURL, p.URLReferences, p.Description, p.Lang);
+            return Ok(new { results = status });
+        }
+
+        [Route("api/partner/updatePartner")]
+        [HttpPost]
+        public IHttpActionResult UpdatePartner(AboutPartner p)
+        {
+            var status = db.updatePartner(p.ID_AboutPartner, p.PictureURL, p.URLReferences, p.Description, p.Lang);
+            return Ok(new { results = status });
+        }
+
+        [Route("api/partner/deletePartner")]
+        [HttpPost]
+        public IHttpActionResult DeletePartner(AboutPartner p)
+        {
+            var status = db.deletePartner(p.ID_AboutPartner);
+            return Ok(new { results = status });
+        }
     }
 }

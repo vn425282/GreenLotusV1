@@ -19,7 +19,11 @@ export const routes: Routes = [
         component: AdminComponent,
         children: [
             { path: '', redirectTo: 'login', pathMatch: 'full' },
-            { path: 'login', loadChildren: './login/login.module#LoginModule' }
+            { path: 'login', loadChildren: './login/login.module#LoginModule' },
+            { path: 'logout', loadChildren: './logout/logout.module#LogoutModule' },
+            { path: 'list-user', loadChildren: './listusercmnd/listusercmnd.module#ListUserCMNDModule' },
+            { path: 'list-partner', loadChildren: './listpartner/listpartner.module#ListPartnerModule' },
+            { path: 'add-user', loadChildren: './idcardregister/idcardregister.module#ListPartnerModule' }
         ]
     }
 ]

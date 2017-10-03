@@ -15,7 +15,6 @@ import { SpinnerComponentModule } from 'ng2-component-spinner';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { IDCardRegisterComponent } from './idcardregister/idcardregister.component';
-import { ListUserCMNDComponent } from './listusercmnd/listusercmnd.component';
 import { TableComponent } from './table/table.component';
 import { TypographyComponent } from './typography/typography.component';
 import { IconsComponent } from './icons/icons.component';
@@ -35,16 +34,13 @@ import { SharedService } from 'app/services/shared/shared.service';
     AdminComponent,
     DashboardComponent,
     UserComponent,
-    IDCardRegisterComponent,
-    LogoutComponent,
-    ListUserCMNDComponent,
     TableComponent,
     TypographyComponent,
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
   ],
   imports: [
     SidebarModule,

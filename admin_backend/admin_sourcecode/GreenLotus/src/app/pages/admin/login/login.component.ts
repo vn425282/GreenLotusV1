@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
         public sharedService: SharedService,
         public router: Router) {
         if (localStorage.getItem('login')) {
-            this.router.navigate(['/listusercmnd']);
+            this.router.navigate(['pages/admin/list-user']);
         }
     }
 
@@ -34,7 +34,7 @@ export class LoginComponent implements OnInit {
                 if (data.results) {
                     localStorage.setItem('login', 'true');
                     this.sharedService.flagLogin = true;
-                    this.router.navigate(['/list-user']);
+                    this.router.navigate(['pages/admin/list-user']);
                 } else {
                     this.errorMessage = 'Bạn đã nhập sai mật khẩu hoặc Email';
                 }

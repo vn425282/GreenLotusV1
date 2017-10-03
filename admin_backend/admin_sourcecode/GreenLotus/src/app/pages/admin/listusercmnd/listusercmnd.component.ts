@@ -10,12 +10,13 @@ declare interface TableData {
 @Component({
     selector: 'listusercmnd',
     moduleId: module.id,
-    templateUrl: 'listusercmnd.component.html'
+    templateUrl: 'listusercmnd.component.html',
+    styleUrls: ['listusercmnd.css']
 })
 
 export class ListUserCMNDComponent implements OnInit {
     public tableData1?: TableData;
-    public flagSpinner: boolean = false;
+    public flagSpinner = false;
 
     constructor(public usersService: UsersService, public router: Router) {
 
@@ -51,6 +52,6 @@ export class ListUserCMNDComponent implements OnInit {
     }
 
     goAddUser() {
-        this.router.navigate(['idcardregister']);
+        this.router.navigate(['pages/admin/add-user']);
     }
 }
