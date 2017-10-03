@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { UsersService } from "app/services/users/users.service";
+import { UsersService } from 'app/services/users/users.service';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 
 @Component({
@@ -12,8 +12,8 @@ import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 export class IDCardRegisterComponent implements OnInit {
     public base64textStringCMNDFront?: any;
     public base64textStringCMNDEnd?: any;
-    public flagSpinner: boolean = false;
-    public noticeMessage: string = "";
+    public flagSpinner = false;
+    public noticeMessage = '';
 
     @ViewChild('username') username: ElementRef;
     @ViewChild('address') address: ElementRef;
@@ -41,8 +41,8 @@ export class IDCardRegisterComponent implements OnInit {
         try {
             this.flagSpinner = true;
             let textBase64: string;
-            var file: File = inputValue.files[0];
-            var myReader: FileReader = new FileReader();
+            const file: File = inputValue.files[0];
+            const myReader: FileReader = new FileReader();
 
             myReader.onloadend = ((e) => {
                 textBase64 = myReader.result;
@@ -56,38 +56,35 @@ export class IDCardRegisterComponent implements OnInit {
                 this.flagSpinner = false;
             });
             myReader.readAsDataURL(file);
-        }
-        catch (e) {
+        } catch (e) {
             console.log('error at: readThis() ----- idcardregister');
             if (state === 'front') {
                 this.base64textStringCMNDFront = '';
-            }
-            else {
+            } else {
                 this.base64textStringCMNDEnd = '';
             }
         }
     }
 
-
     addUser() {
-        this.noticeMessage = "";
+        this.noticeMessage = '';
         this.flagSpinner = true;
         this.usersService.getUsers().subscribe(data => {
             this.flagSpinner = false;
-            let checkDuplicateEmail = data.results.find(x => x.Email === this.email.nativeElement.value);
-            if (checkDuplicateEmail && this.email.nativeElement.value.length != 0) {
+            const checkDuplicateEmail = data.results.find(x => x.Email === this.email.nativeElement.value);
+            if (checkDuplicateEmail && this.email.nativeElement.value.length !== 0) {
                 this.noticeModal.open();
                 this.flagSpinner = false;
-                this.noticeMessage = "Email này đã tồn tại vui lòng chọn Email khác !";
+                this.noticeMessage = 'Email này đã tồn tại vui lòng chọn Email khác !';
             } else {
                 this.flagSpinner = false;
                 this.usersService.addUser(this.username.nativeElement.value,
                     this.address.nativeElement.value,
                     this.email.nativeElement.value,
                     this.password.nativeElement.value,
-                    this.role.nativeElement.value).subscribe(data => {
+                    this.role.nativeElement.value).subscribe(myData => {
                         this.noticeModal.open();
-                        this.noticeMessage = "Thêm người dùng thành công !!!";
+                        this.noticeMessage = 'Thêm người dùng thành công !!!';
                         this.resetFailed();
                     });
             }
