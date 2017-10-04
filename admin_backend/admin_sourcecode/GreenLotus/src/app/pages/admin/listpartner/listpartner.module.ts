@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SpinnerComponentModule } from 'ng2-component-spinner';
 import { routing } from './listpartner.routing';
 import { ListPartnerComponent } from './listpartner.component';
+import { PartnerService } from '../../../services/partner/partner.service';
 
 @NgModule({
     imports: [
@@ -15,6 +16,8 @@ import { ListPartnerComponent } from './listpartner.component';
     declarations: [
         ListPartnerComponent,
     ],
-    providers: []
+    providers: [
+        PartnerService
+    ]
 })
 export class ListPartnerModule { }

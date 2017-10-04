@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { UsersService } from 'app/services/users/users.service';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'idcardregister',
@@ -26,7 +27,7 @@ export class IDCardRegisterComponent implements OnInit {
 
     }
 
-    constructor(public usersService: UsersService) {
+    constructor(public usersService: UsersService, public router: Router) {
     }
 
     fuCMNDFrontChange($event): void {
@@ -99,5 +100,9 @@ export class IDCardRegisterComponent implements OnInit {
         this.base64textStringCMNDEnd = '';
         this.role.nativeElement.value = '1';
         this.password.nativeElement.value = '';
+    }
+
+    back() {
+        this.router.navigate(['pages/admin/listusercmnd']);
     }
 }

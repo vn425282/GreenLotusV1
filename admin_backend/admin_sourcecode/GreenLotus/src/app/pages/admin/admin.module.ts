@@ -40,7 +40,7 @@ import { SharedService } from 'app/services/shared/shared.service';
     MapsComponent,
     NotificationsComponent,
     UpgradeComponent,
-    UpdateUserComponent,
+    UpdateUserComponent
   ],
   imports: [
     SidebarModule,

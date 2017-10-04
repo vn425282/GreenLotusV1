@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { UsersService } from "app/services/users/users.service";
+import { UsersService } from 'app/services/users/users.service';
 import { ModalComponent } from 'ng2-bs3-modal/ng2-bs3-modal';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 
@@ -11,8 +11,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 })
 
 export class UpdateUserComponent implements OnInit {
-    public flagSpinner: boolean = false;
-    public noticeMessage: string = "";
+    public flagSpinner = false;
+    public noticeMessage = '';
     public currentUserID: number;
 
     @ViewChild('username') username: ElementRef;
@@ -26,7 +26,7 @@ export class UpdateUserComponent implements OnInit {
     ngOnInit() {
         // subscribe to router event
         this.activatedRoute.params.subscribe((params: Params) => {
-            let userId = params['userId'];
+            const userId = params['userId'];
             this.currentUserID = userId;
             this.usersService.getUserByID(userId).subscribe(data => {
                 if (data.results) {
@@ -43,7 +43,7 @@ export class UpdateUserComponent implements OnInit {
                         this.status.nativeElement.value = 2;
                     }
                 } else {
-                    this.router.navigate(['/listusercmnd']);
+                    this.router.navigate(['pages/admin/listusercmnd']);
                 }
             });
         });
@@ -53,26 +53,26 @@ export class UpdateUserComponent implements OnInit {
     }
 
     back() {
-        this.router.navigate(['/listusercmnd']);
+        this.router.navigate(['pages/admin/listusercmnd']);
     }
 
     updateUser() {
-        this.noticeMessage = "";
+        this.noticeMessage = '';
         this.flagSpinner = true;
         let status = true;
-        if (this.status.nativeElement.value == 2) {
+        if (this.status.nativeElement.value === 2) {
             status = false;
         }
         this.usersService.updateUser(
-            this.currentUserID, 
+            this.currentUserID,
             this.username.nativeElement.value,
             this.address.nativeElement.value,
             this.password.nativeElement.value,
-            this.role.nativeElement.value, 
+            this.role.nativeElement.value,
             status).subscribe(data => {
                 this.flagSpinner = false;
                 this.noticeModal.open();
-                this.noticeMessage = "Update người dùng thành công !!!";
+                this.noticeMessage = 'Update người dùng thành công !!!';
             });
     }
 }
