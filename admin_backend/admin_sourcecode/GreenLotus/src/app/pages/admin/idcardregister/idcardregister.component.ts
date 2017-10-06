@@ -103,6 +103,6 @@ export class IDCardRegisterComponent implements OnInit {
     }
 
     back() {
-        this.router.navigate(['pages/admin/listusercmnd']);
+        this.router.navigate(['pages/admin/list-user']);
     }
 }

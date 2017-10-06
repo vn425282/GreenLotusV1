@@ -10,7 +10,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/GreenLotusAPI.dll">
-      <publishTime>10/04/2017 00:53:58</publishTime>
+      <publishTime>10/06/2017 01:49:25</publishTime>
+    </File>
+    <File Include="bin/GreenLotusAPI.pdb">
+      <publishTime>10/06/2017 01:49:24</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>06/15/2015 02:06:24</publishTime>
@@ -79,7 +82,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/03/2017 19:32:46</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>10/04/2017 00:16:09</publishTime>
+      <publishTime>10/06/2017 01:06:33</publishTime>
     </File>
   </ItemGroup>
 </Project>

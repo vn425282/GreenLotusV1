@@ -6,6 +6,9 @@ using System.Net.Http;
 using System.Web.Http;
 using GreenLotusAPI.Models;
 using System.Web.Http.Cors;
+using System.Drawing;
+using System.IO;
+using System.Web;
 
 namespace GreenLotusAPI.Controllers
 {
@@ -18,6 +21,14 @@ namespace GreenLotusAPI.Controllers
             public string email { get; set; }
             public string pass { get; set; }
         }
+
+        public class Base64ImageObj
+        {
+            public string urlBase64 { get; set; }
+            public string prefix { get; set; }
+            public string extend { get; set; }
+        }
+
 
         [Route("api/users/getAllUser")]
         [HttpGet]
@@ -93,6 +104,26 @@ namespace GreenLotusAPI.Controllers
         {
             var status = db.deletePartner(p.ID_AboutPartner);
             return Ok(new { results = status });
+        }
+   
+        [Route("api/shared/uploadBase64ImgToServer")]
+        [HttpPost]
+        public IHttpActionResult UploadBase64ImgToServer(Base64ImageObj base64Image)
+        {
+            try
+            {
+                byte[] bytes = Convert.FromBase64String(base64Image.urlBase64);
+                // string filePath = "./image/MyImage.jpg";
+                string path = Directory.GetCurrentDirectory();
+
+                Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
+                var filePath = HttpContext.Current.Server.MapPath("~/Image/" + base64Image.prefix + "-" + unixTimestamp + "." + base64Image.extend);
+                File.WriteAllBytes(filePath, bytes);
+                return Ok(new { results = "/Image/" + base64Image.prefix + "-" + unixTimestamp + "." + base64Image.extend });
+                }catch(Exception e)
+            {
+                return Ok(new { results = e });
+            }
         }
     }
 }

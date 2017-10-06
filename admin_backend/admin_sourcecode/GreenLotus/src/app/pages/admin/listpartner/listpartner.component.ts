@@ -31,23 +31,23 @@ export class ListPartnerComponent implements OnInit {
             ]
         };
 
-        // this._p.getPartner().subscribe(data => {
-        //     this.flagSpinner = false;
-        //     for (const item of data.results) {
-        //         let lang = 'Việt Nam';
-        //         if (item.Lang === 'EN') {
-        //             lang = 'Tiếng Anh';
-        //         }
-        //         this.tableData1.dataRows.push([
-        //             'KH-' + item.ID_AboutPartner,
-        //             item.PictureURL,
-        //             item.URLReferences,
-        //             item.Description,
-        //             item.Lang,
-        //             '<a href="updatePartner/' + item.ID_AboutPartner + '">Sửa</a> || <a href="#"' + item.ID_Users + '>Xóa</a>'
-        //         ]);
-        //     }
-        // });
+        this._p.getPartner().subscribe(data => {
+            this.flagSpinner = false;
+            for (const item of data.results) {
+                let lang = 'Việt Nam';
+                if (item.Lang === 'EN') {
+                    lang = 'Tiếng Anh';
+                }
+                this.tableData1.dataRows.push([
+                    'KH-' + item.ID_AboutPartner,
+                    item.PictureURL,
+                    item.URLReferences,
+                    item.Description,
+                    item.Lang,
+                    item.ID_AboutPartner
+                ]);
+            }
+        });
     }
 
     addPartner() {

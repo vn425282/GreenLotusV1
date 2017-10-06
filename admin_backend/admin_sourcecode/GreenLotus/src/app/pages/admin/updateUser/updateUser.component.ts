@@ -43,7 +43,7 @@ export class UpdateUserComponent implements OnInit {
                         this.status.nativeElement.value = 2;
                     }
                 } else {
-                    this.router.navigate(['pages/admin/listusercmnd']);
+                    this.router.navigate(['pages/admin/list-user']);
                 }
             });
         });
@@ -53,7 +53,7 @@ export class UpdateUserComponent implements OnInit {
     }
 
     back() {
-        this.router.navigate(['pages/admin/listusercmnd']);
+        this.router.navigate(['pages/admin/list-user']);
     }
 
     updateUser() {

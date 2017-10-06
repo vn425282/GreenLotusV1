@@ -33,7 +33,7 @@ export class ListUserCMNDComponent implements OnInit {
 
         this.usersService.getUsers().subscribe(data => {
             this.flagSpinner = false;
-            for (let item of data.results) {
+            for (const item of data.results) {
                 let status = 'Đã khóa';
                 if (item.Status) {
                     status = 'Đang hoạt động';
@@ -45,7 +45,7 @@ export class ListUserCMNDComponent implements OnInit {
                     item.Email,
                     item.Name,
                     status,
-                    '<a href="updateUser/' + item.ID_Users + '">Sửa</a>'
+                    '<a href="pages/admin/update-user/' + item.ID_Users + '">Sửa</a>'
                 ]);
             }
         });

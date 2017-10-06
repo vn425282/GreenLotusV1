@@ -39,8 +39,7 @@ import { SharedService } from 'app/services/shared/shared.service';
     IconsComponent,
     MapsComponent,
     NotificationsComponent,
-    UpgradeComponent,
-    UpdateUserComponent
+    UpgradeComponent
   ],
   imports: [
     SidebarModule,

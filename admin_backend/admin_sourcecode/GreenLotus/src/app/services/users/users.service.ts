@@ -17,11 +17,11 @@ export class UsersService {
     // api/users/getAllUser
     getUsers(): Observable<any> {
         // ...using get request
-        let url = 'api/users/getAllUser';
+        const url = 'api/users/getAllUser';
         return this.http.get(this.shared.baseURL + url)
             // ...and calling .json() on the response to return data
             .map((res: Response) => res.json())
-            //...errors if any
+            // ...errors if any
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 
     }
