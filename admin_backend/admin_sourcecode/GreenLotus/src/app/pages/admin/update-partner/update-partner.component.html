@@ -3,18 +3,17 @@
         <div class="col-lg-8 col-md-7">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Sửa thông tin đối tác</h4>
+                    <h4 class="title">Thêm đối tác</h4>
                 </div>
                 <div class="content">
                     <form>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <label>Hình đại diện ( LOGO, hình, ... )</label>
-                                    <input type="file" #logo>
-                                    <input type="hidden" #hdlogo>
+                                    <label><b>Hình đại diện ( LOGO, hình, ... ). </b><br> - Lưu ý, hệ thống giữ nguyên size của logo ( không tự động cân chỉnh ) nên vui lòng chọn ảnh có size phù hợp cho website.<br> - Chỉ chấp nhận file jpg, png và gif</label>
+                                    <input type="file" (change)="logoChangeFU($event)" #logo>
                                     <p><b>Xem trước</b></p>
-                                    <img>
+                                    <img [src]="srcPreview">
                                 </div>
                             </div>
                         </div>
@@ -41,7 +40,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Nhập cho ngôn ngữ</label>
-                                    <select class="form-control border-input" #role>
+                                    <select class="form-control border-input" #lang>
                                         <option value="vn">Tiếng Việt</option>
                                         <option value="en">Tiếng Anh</option>
                                     </select>
@@ -53,7 +52,7 @@
                             <button type="button" class="btn btn-info btn-fill btn-wd" (click)="back();">
                                 Quay lại
                             </button>
-                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="addUser();">
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="updatePartner();">
                                 Lưu thông tin
                             </button>
                         </div>

@@ -3,14 +3,14 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="header">
-                    <h4 class="title">Danh sách đối tác</h4>
+                    <h4 class="title">Giới thiệu nhân viên công ty</h4>
                     <!-- <b>* Gõ vào ô tìm kiếm từ bạn muốn và bấm Enter để tìm kiếm</b> -->
                 </div>
                 <div class="header">
                     <div class="row">
                         <div class="col-md-3">
-                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="addPartner();">
-                                Thêm đối tác
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="addPeople();">
+                                Thêm giới thiệu nhân viên
                             </button>
                         </div>
                         <!-- <div class="col-md-4">
@@ -48,7 +48,7 @@
                                     <div [innerHTML]="cell"></div>
                                 </td>
                                 <td>
-                                    <a routerLink='/pages/admin/update-partner/{{row[5]}}'>Cập nhập</a> ||
+                                    <a routerLink='/pages/admin/update-people/{{row[5]}}'>Cập nhập</a> ||
                                     <a href='javascript:void(0)' (click)='showPopUpConfirm(row[5])'>Xóa</a>
                                 </td>
                             </tr>
@@ -57,28 +57,6 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="col-md-12">
-            <div class="card card-plain">
-                <div class="header">
-                    <h4 class="title">Table on Plain Background</h4>
-                    <p class="category">Here is a subtitle for this table</p>
-                </div>
-                <div class="content table-responsive table-full-width">
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th *ngFor="let cell of tableData2.headerRow">{{ cell }}</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr *ngFor="let row of tableData2.dataRows">
-                                <td *ngFor="let cell of row">{{cell}}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div> -->
     </div>
 </div>
 <modal #noticeModal>
@@ -87,7 +65,7 @@
     </modal-header>
     <modal-body>
         {{ noticeMessage }}
-        <input type="button" class="btn btn-info btn-fill btn-wd" value="Xác nhận xóa !" (click)="deletePartner()">
+        <input type="button" class="btn btn-info btn-fill btn-wd" value="Xác nhận xóa !" (click)="deletePeople()">
     </modal-body>
     <modal-footer [show-default-buttons]="false"></modal-footer>
 </modal>

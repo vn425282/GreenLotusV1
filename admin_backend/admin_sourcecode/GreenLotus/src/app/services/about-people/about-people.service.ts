@@ -6,18 +6,18 @@ import { SharedService } from 'app/services/shared/shared.service';
 // Import RxJs required methods
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { AboutUs } from 'app/models/aboutus';
+import { AboutPeopleObj } from 'app/models/aboutpeople';
 
 @Injectable()
-export class StaffService {
+export class AboutPeopleService {
     // Resolve HTTP using the constructor
     constructor(public http: Http,
         public shared: SharedService) { }
     // private instance variable to hold base url
 
-    getAboutUs(): Observable<any> {
+    getAboutPeople(): Observable<any> {
         // ...using get request
-        const url = 'api/about/getAboutUs';
+        const url = 'api/about/getAboutPeople';
         return this.http.get(this.shared.baseURL + url)
             // ...and calling .json() on the response to return data
             .map((res: Response) => res.json())
@@ -26,11 +26,11 @@ export class StaffService {
 
     }
 
-    addAboutUs(s: AboutUs): Observable<any> {
-        const url = 'api/about/addAboutUs';
+    addAboutPeople(s: AboutPeopleObj): Observable<any> {
+        const url = 'api/about/addAboutPeople';
         const body = {
-            Description: s.description, WhyChoose: s.whychoose, OurMission: s.ourmission,
-            Lang: s.lang
+            Description: s.Description, RoleName: s.RoleName, PictureURL: s.PictureURL,
+            Lang: s.Lang
         };
         console.log(body);
         return this.http.post(this.shared.baseURL + url, body, this.shared.options)
@@ -40,11 +40,11 @@ export class StaffService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    updateAboutUs(s: AboutUs): Observable<any> {
-        const url = 'api/about/updateAboutUs';
+    updateAboutPeople(s: AboutPeopleObj): Observable<any> {
+        const url = 'api/about/AboutPeopleObj';
         const body = {
-            ID_AboutUs: s.idAboutUs, Description: s.description, WhyChoose: s.whychoose, OurMission: s.ourmission,
-            Lang: s.lang
+            ID_AboutPeople: s.ID_AboutPeople, Description: s.Description, RoleName: s.RoleName, PictureURL: s.PictureURL,
+            Lang: s.Lang
         };
         console.log(body);
         return this.http.post(this.shared.baseURL + url, body, this.shared.options)
@@ -54,9 +54,9 @@ export class StaffService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
     }
 
-    deleteAboutUs(id): Observable<any> {
-        const url = 'api/about/deleteAboutUs';
-        const body = { ID_AboutUs: id };
+    deleteAboutPeople(id): Observable<any> {
+        const url = 'api/about/deleteAboutPeople';
+        const body = { ID_AboutPeople: id };
         console.log(body);
         return this.http.post(this.shared.baseURL + url, body, this.shared.options)
             // ...and calling .json() on the response to return data

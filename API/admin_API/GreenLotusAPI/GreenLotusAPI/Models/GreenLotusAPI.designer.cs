@@ -117,10 +117,10 @@ namespace GreenLotusAPI.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addPartner")]
-		public int addPartner([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PictureURL", DbType="NVarChar(MAX)")] string pictureURL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="URLRefercens", DbType="NVarChar(MAX)")] string uRLRefercens, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addAboutPeople")]
+		public int addAboutPeople([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoleName", DbType="NVarChar(200)")] string roleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PictureURL", DbType="NVarChar(MAX)")] string pictureURL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pictureURL, uRLRefercens, description, lang);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), description, roleName, pictureURL, lang);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -128,6 +128,13 @@ namespace GreenLotusAPI.Models
 		public int updateUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_Users", DbType="Int")] System.Nullable<int> iD_Users, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NVarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(200)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(200)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_Role", DbType="Int")] System.Nullable<int> iD_Role, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="Bit")] System.Nullable<bool> status)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_Users, username, address, password, iD_Role, status);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addPartner")]
+		public int addPartner([global::System.Data.Linq.Mapping.ParameterAttribute(Name="PictureURL", DbType="NVarChar(MAX)")] string pictureURL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="URLRefercens", DbType="NVarChar(MAX)")] string uRLRefercens, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), pictureURL, uRLRefercens, description, lang);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -145,11 +152,32 @@ namespace GreenLotusAPI.Models
 			return ((ISingleResult<checkLoginResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deleteAboutPeople")]
+		public int deleteAboutPeople([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_AboutPeople", DbType="Int")] System.Nullable<int> iD_AboutPeople)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_AboutPeople);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deletePartner")]
 		public int deletePartner([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAboutPeople")]
+		public ISingleResult<getAboutPeopleResult> getAboutPeople()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<getAboutPeopleResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllAboutUs")]
+		public ISingleResult<getAllAboutUsResult> getAllAboutUs()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<getAllAboutUsResult>)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getAllPartner")]
@@ -171,6 +199,20 @@ namespace GreenLotusAPI.Models
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD);
 			return ((ISingleResult<getUserByIDResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateAboutPeople")]
+		public int updateAboutPeople([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_AboutPeople", DbType="Int")] System.Nullable<int> iD_AboutPeople, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoleName", DbType="NVarChar(200)")] string roleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PictureURL", DbType="NVarChar(MAX)")] string pictureURL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_AboutPeople, description, roleName, pictureURL, lang);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateAboutUs")]
+		public int updateAboutUs([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_AboutUs", DbType="Int")] System.Nullable<int> iD_AboutUs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhyChoose", DbType="NVarChar(MAX)")] string whyChoose, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OurMission", DbType="NVarChar(MAX)")] string ourMission, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_AboutUs, description, whyChoose, ourMission, lang);
+			return ((int)(result.ReturnValue));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updatePartner")]
@@ -758,7 +800,7 @@ namespace GreenLotusAPI.Models
 		
 		private string _OurMission;
 		
-		private System.Nullable<int> _Lang;
+		private string _Lang;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -772,7 +814,7 @@ namespace GreenLotusAPI.Models
     partial void OnWhyChooseChanged();
     partial void OnOurMissionChanging(string value);
     partial void OnOurMissionChanged();
-    partial void OnLangChanging(System.Nullable<int> value);
+    partial void OnLangChanging(string value);
     partial void OnLangChanged();
     #endregion
 		
@@ -861,8 +903,8 @@ namespace GreenLotusAPI.Models
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang", DbType="Int")]
-		public System.Nullable<int> Lang
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang", DbType="NVarChar(50)")]
+		public string Lang
 		{
 			get
 			{
@@ -1145,6 +1187,202 @@ namespace GreenLotusAPI.Models
 				if ((this._Status != value))
 				{
 					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getAboutPeopleResult
+	{
+		
+		private int _ID_AboutPeople;
+		
+		private string _Description;
+		
+		private string _RoleName;
+		
+		private string _PictureURL;
+		
+		private string _Lang;
+		
+		public getAboutPeopleResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AboutPeople", DbType="Int NOT NULL")]
+		public int ID_AboutPeople
+		{
+			get
+			{
+				return this._ID_AboutPeople;
+			}
+			set
+			{
+				if ((this._ID_AboutPeople != value))
+				{
+					this._ID_AboutPeople = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RoleName", DbType="NVarChar(200)")]
+		public string RoleName
+		{
+			get
+			{
+				return this._RoleName;
+			}
+			set
+			{
+				if ((this._RoleName != value))
+				{
+					this._RoleName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PictureURL", DbType="NVarChar(MAX)")]
+		public string PictureURL
+		{
+			get
+			{
+				return this._PictureURL;
+			}
+			set
+			{
+				if ((this._PictureURL != value))
+				{
+					this._PictureURL = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang", DbType="NVarChar(50)")]
+		public string Lang
+		{
+			get
+			{
+				return this._Lang;
+			}
+			set
+			{
+				if ((this._Lang != value))
+				{
+					this._Lang = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getAllAboutUsResult
+	{
+		
+		private int _ID_AboutUs;
+		
+		private string _Description;
+		
+		private string _WhyChoose;
+		
+		private string _OurMission;
+		
+		private string _Lang;
+		
+		public getAllAboutUsResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_AboutUs", DbType="Int NOT NULL")]
+		public int ID_AboutUs
+		{
+			get
+			{
+				return this._ID_AboutUs;
+			}
+			set
+			{
+				if ((this._ID_AboutUs != value))
+				{
+					this._ID_AboutUs = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhyChoose", DbType="NVarChar(MAX)")]
+		public string WhyChoose
+		{
+			get
+			{
+				return this._WhyChoose;
+			}
+			set
+			{
+				if ((this._WhyChoose != value))
+				{
+					this._WhyChoose = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OurMission", DbType="NVarChar(MAX)")]
+		public string OurMission
+		{
+			get
+			{
+				return this._OurMission;
+			}
+			set
+			{
+				if ((this._OurMission != value))
+				{
+					this._OurMission = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang", DbType="NVarChar(50)")]
+		public string Lang
+		{
+			get
+			{
+				return this._Lang;
+			}
+			set
+			{
+				if ((this._Lang != value))
+				{
+					this._Lang = value;
 				}
 			}
 		}

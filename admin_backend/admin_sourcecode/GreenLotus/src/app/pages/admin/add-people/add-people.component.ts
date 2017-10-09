@@ -1,19 +1,20 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { PartnerService } from '../../../services/partner/partner.service';
+
 import { Router } from '@angular/router';
-import { Partner } from 'app/models/partner';
+import { AboutPeopleObj } from 'app/models/aboutpeople';
 import { SharedService } from 'app/services/shared/shared.service';
 import { ModalComponent } from 'ng2-bs3-modal/components/modal';
+import { AboutPeopleService } from 'app/services/about-people/about-people.service';
 
 @Component({
-  selector: 'app-add-partner',
-  templateUrl: './add-partner.component.html',
-  styleUrls: ['./add-partner.css']
+  selector: 'app-add-people',
+  templateUrl: './add-people.component.html',
+  styleUrls: ['./add-people.css']
 })
 
-export class AddPartnerComponent implements OnInit {
+export class AddPeopleComponent implements OnInit {
   @ViewChild('logo') imgLogo: ElementRef;
-  @ViewChild('urlReferences') urlReferences: ElementRef;
+  @ViewChild('roleName') roleName: ElementRef;
   @ViewChild('description') description: ElementRef;
   @ViewChild('lang') lang: ElementRef;
   @ViewChild('noticeModal') noticeModal: ModalComponent;
@@ -24,7 +25,7 @@ export class AddPartnerComponent implements OnInit {
   public noticeMessage = '';
   public shortPathURL = '';
 
-  constructor(public _p: PartnerService, public router: Router, public _shared: SharedService) { }
+  constructor(public _p: AboutPeopleService, public router: Router, public _shared: SharedService) { }
 
   ngOnInit() {
 
@@ -47,7 +48,7 @@ export class AddPartnerComponent implements OnInit {
           textBase64 = myReader.result;
           this.myLogoBase64String = textBase64;
           // this.srcPreview = textBase64;
-          this._shared.uploadBase64ImgToServer(textBase64, 'partner', fileExtend).subscribe(data => {
+          this._shared.uploadBase64ImgToServer(textBase64, 'aboutpeople', fileExtend).subscribe(data => {
             this.srcPreview = this._shared.getBaseURLWithoutFlash() + data.results;
             this.shortPathURL = data.results;
             this.flagSpinner = false;
@@ -67,21 +68,21 @@ export class AddPartnerComponent implements OnInit {
   }
 
   back() {
-    this.router.navigate(['pages/admin/list-partner']);
+    this.router.navigate(['pages/admin/list-people']);
   }
 
-  addPartner() {
+  addPeople() {
     this.flagSpinner = true;
-    const pObject: Partner = new Partner();
-    pObject.description = this.description.nativeElement.value;
-    pObject.lang = this.lang.nativeElement.value;
-    pObject.urlReferences = this.urlReferences.nativeElement.value;
-    pObject.pictureURL = this.shortPathURL;
-    this._p.addPartner(pObject).subscribe(data => {
+    const pObject: AboutPeopleObj = new AboutPeopleObj();
+    pObject.Description = this.description.nativeElement.value;
+    pObject.Lang = this.lang.nativeElement.value;
+    pObject.RoleName = this.roleName.nativeElement.value;
+    pObject.PictureURL = this.shortPathURL;
+    this._p.addAboutPeople(pObject).subscribe(data => {
       this.flagSpinner = false;
-      console.log('addPartner', data);
+      console.log('addAboutPeople', data);
       this.noticeModal.open();
-      this.noticeMessage = 'Thêm đối tác thành công !!!';
+      this.noticeMessage = 'Thêm giới thiệu nhân viên thành công !!!';
       this.resetFailed();
     });
   }
@@ -89,7 +90,7 @@ export class AddPartnerComponent implements OnInit {
   resetFailed() {
     this.description.nativeElement.value = '';
     this.lang.nativeElement.value = 'vn';
-    this.urlReferences.nativeElement.value = '';
+    this.roleName.nativeElement.value = '';
     this.srcPreview = '';
     this.shortPathURL = '';
     this.imgLogo.nativeElement.value = '';

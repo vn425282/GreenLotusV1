@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 // components
+
 import { SpinnerComponentModule } from 'ng2-component-spinner';
-import { routing } from './listpartner.routing';
-import { ListPartnerComponent } from './listpartner.component';
-import { PartnerService } from '../../../services/partner/partner.service';
+import { routing } from './add-people.routing';
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+
+import { AddPeopleComponent } from 'app/pages/admin/add-people/add-people.component';
+import { AboutPeopleService } from 'app/services/about-people/about-people.service';
 
 @NgModule({
     imports: [
@@ -16,10 +18,10 @@ import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
         routing
     ],
     declarations: [
-        ListPartnerComponent,
+        AddPeopleComponent
     ],
     providers: [
-        PartnerService
+        AboutPeopleService
     ]
 })
-export class ListPartnerModule { }
+export class AddPeopleModule { }

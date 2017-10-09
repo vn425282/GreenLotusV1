@@ -3,10 +3,11 @@ import { CommonModule } from '@angular/common';
 
 // components
 import { SpinnerComponentModule } from 'ng2-component-spinner';
-import { routing } from './listpartner.routing';
-import { ListPartnerComponent } from './listpartner.component';
-import { PartnerService } from '../../../services/partner/partner.service';
+import { routing } from './listpeople.routing';
+import { ListPeopleComponent } from './listpeople.component';
+
 import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
+import { AboutPeopleService } from 'app/services/about-people/about-people.service';
 
 @NgModule({
     imports: [
@@ -16,10 +17,10 @@ import { Ng2Bs3ModalModule } from 'ng2-bs3-modal/ng2-bs3-modal';
         routing
     ],
     declarations: [
-        ListPartnerComponent,
+        ListPeopleComponent,
     ],
     providers: [
-        PartnerService
+        AboutPeopleService
     ]
 })
-export class ListPartnerModule { }
+export class ListPeopleModule { }

@@ -125,5 +125,53 @@ namespace GreenLotusAPI.Controllers
                 return Ok(new { results = e });
             }
         }
+
+        [Route("api/about/getAllAboutUs")]
+        [HttpGet]
+        public IHttpActionResult GetAllAboutUs()
+        {
+            var listAboutUS = db.getAllAboutUs().ToList<getAllAboutUsResult>();
+            return Ok(new { results = listAboutUS });
+        }
+
+        [Route("api/about/updateAboutUs")]
+        [HttpPost]
+        public IHttpActionResult UpdateAboutUs(AboutUs aboutUs)
+        {
+            var status = db.updateAboutUs(aboutUs.ID_AboutUs, aboutUs.Description, aboutUs.WhyChoose, aboutUs.OurMission, aboutUs.Lang);
+            return Ok(new { results = status });
+        }
+
+        [Route("api/about/getAboutPeople")]
+        [HttpGet]
+        public IHttpActionResult getAboutPeople()
+        {
+            var listAboutPeople = db.getAboutPeople().ToList<getAboutPeopleResult>();
+            return Ok(new { results = listAboutPeople });
+        }
+
+        [Route("api/about/addAboutPeople")]
+        [HttpPost]
+        public IHttpActionResult AddAboutPeople(AboutPeople p)
+        {
+            var status = db.addAboutPeople(p.Description, p.RoleName, p.PictureURL, p.Lang);
+            return Ok(new { results = status });
+        }
+
+        [Route("api/about/updateAboutPeople")]
+        [HttpPost]
+        public IHttpActionResult UpdateAboutPeople(AboutPeople p)
+        {
+            var status = db.updateAboutPeople(p.ID_AboutPeople, p.Description, p.RoleName, p.PictureURL, p.Lang);
+            return Ok(new { results = status });
+        }
+
+        [Route("api/about/deleteAboutPeople")]
+        [HttpPost]
+        public IHttpActionResult DeleteAboutPeople(AboutPeople p)
+        {
+            var status = db.deleteAboutPeople(p.ID_AboutPeople);
+            return Ok(new { results = status });
+        }
     }
 }

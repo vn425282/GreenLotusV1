@@ -25,8 +25,10 @@ export const routes: Routes = [
             { path: 'list-partner', loadChildren: './listpartner/listpartner.module#ListPartnerModule' },
             { path: 'add-user', loadChildren: './idcardregister/idcardregister.module#ListPartnerModule' },
             { path: 'add-partner', loadChildren: './add-partner/add-partner.module#AddPartnerModule' },
+            { path: 'add-people', loadChildren: './add-people/add-people.module#AddPeopleModule' },
             { path: 'update-user/:userId', loadChildren: './updateUser/updateUser.module#UpdateUserModule' },
-            { path: 'update-partner', loadChildren: './update-partner/update-partner.module#UpdatePartnerModule' }
+            { path: 'update-partner/:partnerId', loadChildren: './update-partner/update-partner.module#UpdatePartnerModule' },
+            { path: 'list-people', loadChildren: './listpeople/listpeople.module#ListPeopleModule' }
         ]
     }
 ]
