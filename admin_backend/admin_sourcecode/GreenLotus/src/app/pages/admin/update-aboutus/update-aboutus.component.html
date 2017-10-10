@@ -10,8 +10,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Địa chỉ website đối tác ( nếu có )</label>
-                                    <quill-editor [content]="content" #description></quill-editor>
+                                    <label>Mô tả</label>
+                                    <quill-editor #editorDescption></quill-editor>
                                 </div>
                             </div>
                         </div>
@@ -19,8 +19,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Mô tả cho đối tác ( nếu có )</label>
-                                    <input type="text" class="form-control border-input" placeholder="Mô tả" value="">
+                                    <label>Tại sao chọn</label>
+                                    <quill-editor [content]="editorWhyChoose" #editorWhyChoose></quill-editor>
                                 </div>
                             </div>
                         </div>
@@ -28,11 +28,8 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <label>Nhập cho ngôn ngữ</label>
-                                    <select class="form-control border-input" #lang>
-                                        <option value="vn">Tiếng Việt</option>
-                                        <option value="en">Tiếng Anh</option>
-                                    </select>
+                                    <label>Nhiệm vụ của chúng tôi</label>
+                                    <quill-editor [content]="editorOurMission" #editorOurMission></quill-editor>
                                 </div>
                             </div>
                         </div>
