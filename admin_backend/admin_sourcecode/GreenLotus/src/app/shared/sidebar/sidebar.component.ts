@@ -15,10 +15,10 @@ export const ROUTES: RouteInfo[] = [
     // { path: 'idcardregister', title: 'Đăng ký người dùng',  icon:'ti-user', class: '' },
     { path: 'list-user', title: 'Danh sách người dùng',  icon: 'ti-view-list-alt', class: '' },
     { path: 'list-partner', title: 'Danh sách đối tác',  icon: 'ti-view-list-alt', class: '' },
-    { path: 'list-people', title: 'Giởi thiệu con người',  icon: 'ti-user', class: '' },
+    { path: 'list-people', title: 'Giới thiệu con người',  icon: 'ti-user', class: '' },
+    { path: 'list-aboutus', title: 'Về chúng tôi',  icon:'ti-text', class: '' },
     { path: 'logout', title: 'Đăng xuất',  icon: 'ti-spray', class: '' },
     // { path: 'table', title: 'Table List',  icon:'ti-view-list-alt', class: '' },
-    // { path: 'typography', title: 'Typography',  icon:'ti-text', class: '' },
     // { path: 'icons', title: 'Icons',  icon:'ti-pencil-alt2', class: '' },
     // { path: 'maps', title: 'Maps',  icon:'ti-map', class: '' },
     // { path: 'notifications', title: 'Notifications',  icon:'ti-bell', class: '' }

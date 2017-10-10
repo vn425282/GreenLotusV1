@@ -9,7 +9,7 @@ import 'rxjs/add/operator/catch';
 import { AboutUs } from 'app/models/aboutus';
 
 @Injectable()
-export class StaffService {
+export class AboutUsService {
     // Resolve HTTP using the constructor
     constructor(public http: Http,
         public shared: SharedService) { }
@@ -17,7 +17,7 @@ export class StaffService {
 
     getAboutUs(): Observable<any> {
         // ...using get request
-        const url = 'api/about/getAboutUs';
+        const url = 'api/about/getAllAboutUs';
         return this.http.get(this.shared.baseURL + url)
             // ...and calling .json() on the response to return data
             .map((res: Response) => res.json())

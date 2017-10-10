@@ -54,8 +54,7 @@ export class ListPeopleComponent implements OnInit {
                     '<img src="' + this._shared.getBaseURLWithoutFlash() + item.PictureURL + '" />',
                     item.Description,
                     item.RoleName,
-                    item.Lang,
-                    item.ID_AboutPeople
+                    lang
                 ]);
             }
         });

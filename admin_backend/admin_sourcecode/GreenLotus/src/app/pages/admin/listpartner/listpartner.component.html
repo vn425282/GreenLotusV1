@@ -48,8 +48,8 @@
                                     <div [innerHTML]="cell"></div>
                                 </td>
                                 <td>
-                                    <a routerLink='/pages/admin/update-partner/{{row[5]}}'>Cập nhập</a> ||
-                                    <a href='javascript:void(0)' (click)='showPopUpConfirm(row[5])'>Xóa</a>
+                                    <a routerLink='/pages/admin/update-partner/{{row[0].replace("KH-", "")}}'>Cập nhập</a> ||
+                                    <a href='javascript:void(0)' (click)='showPopUpConfirm(row[0].replace("KH-", ""))'>Xóa</a>
                                 </td>
                             </tr>
                         </tbody>

@@ -71,6 +71,7 @@ export class UpdatePartnerComponent implements OnInit {
           this._shared.uploadBase64ImgToServer(textBase64, 'partner', fileExtend).subscribe(data => {
             this.srcPreview = this._shared.getBaseURLWithoutFlash() + data.results;
             this.myCurrentParner.PictureURL = data.results;
+            this.shortPathURL = data.results;
             this.flagSpinner = false;
             // this.srcPreview = data;
           });

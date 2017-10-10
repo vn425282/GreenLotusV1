@@ -32,7 +32,7 @@
         <elementListCompartment Id="925b672e-ca90-4b3d-b02b-e31335fe0abb" absoluteBounds="0.765, 1.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(2.75 : 1.97199625651042); (3.5 : 1.97199625651042)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(2.75 : 1.97199625651042); (3.5 : 1.97199625651042)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/GreenLotusAPIDataContext/Role/Role_User" />
       <nodes>
         <classShapeMoniker Id="2472963a-579b-4473-b36c-b29d3032e3e4" />

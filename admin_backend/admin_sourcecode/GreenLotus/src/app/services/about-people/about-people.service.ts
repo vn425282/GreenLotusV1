@@ -41,7 +41,7 @@ export class AboutPeopleService {
     }
 
     updateAboutPeople(s: AboutPeopleObj): Observable<any> {
-        const url = 'api/about/AboutPeopleObj';
+        const url = 'api/about/updateAboutPeople';
         const body = {
             ID_AboutPeople: s.ID_AboutPeople, Description: s.Description, RoleName: s.RoleName, PictureURL: s.PictureURL,
             Lang: s.Lang

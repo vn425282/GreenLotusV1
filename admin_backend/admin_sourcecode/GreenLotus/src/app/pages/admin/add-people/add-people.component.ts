@@ -48,7 +48,7 @@ export class AddPeopleComponent implements OnInit {
           textBase64 = myReader.result;
           this.myLogoBase64String = textBase64;
           // this.srcPreview = textBase64;
-          this._shared.uploadBase64ImgToServer(textBase64, 'aboutpeople', fileExtend).subscribe(data => {
+          this._shared.uploadBase64ImgToServer(textBase64, 'about-people', fileExtend).subscribe(data => {
             this.srcPreview = this._shared.getBaseURLWithoutFlash() + data.results;
             this.shortPathURL = data.results;
             this.flagSpinner = false;

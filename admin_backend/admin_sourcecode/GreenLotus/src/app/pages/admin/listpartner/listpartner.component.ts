@@ -49,8 +49,7 @@ export class ListPartnerComponent implements OnInit {
                     '<img src="' + this._shared.getBaseURLWithoutFlash() + item.PictureURL + '" />',
                     item.URLReferences,
                     item.Description,
-                    item.Lang,
-                    item.ID_AboutPartner
+                    lang
                 ]);
             }
         });

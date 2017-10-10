@@ -27,7 +27,7 @@ import { CommonModule } from '@angular/common';
 import { LoginModule } from './login/login.module';
 import { UsersService } from '../../services/users/users.service';
 import { SharedService } from 'app/services/shared/shared.service';
-
+import { QuillEditorModule } from 'ngx-quill-editor';
 
 @NgModule({
   declarations: [
@@ -53,6 +53,7 @@ import { SharedService } from 'app/services/shared/shared.service';
     NguiMapModule.forRoot({apiUrl: 'https://maps.google.com/maps/api/js?key=AIzaSyBr-tgUtpm8cyjYVQDrjs8YpZH7zBNWPuY'}),
     CommonModule,
     LoginModule,
+    QuillEditorModule,
     routing
   ],
   providers: [
