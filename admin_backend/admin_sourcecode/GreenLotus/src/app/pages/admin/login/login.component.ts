@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
                 this.flagSpinner = false;
                 if (data.results) {
                     localStorage.setItem('login', 'true');
+                    localStorage.setItem('author', data.results.Username);
                     this.sharedService.flagLogin = true;
                     this.router.navigate(['pages/admin/list-user']);
                 } else {

@@ -1,0 +1,108 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-md-7">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Thêm tin tức / sự kiện / bài viết</h4>
+                </div>
+                <div class="content">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Tiêu đề </label>
+                                    <input type="text" class="form-control border-input" placeholder="Tiêu đề" value="" #title>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        <b>Video cho bài viết ( khuyến khích file .mp4 )</b>
+                                    </label>
+                                    <input type="file" (change)="logoChangeFU($event)" #video>
+                                    <p>
+                                        <b>Xem trước</b>
+                                    </p>
+                                    <video width="400" controls autoplay *ngIf="fileUploaded">
+                                        <source [src]="fileUploaded" type="video/mp4"> Your browser does not support HTML5 video.
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>
+                                        <b>Hình chủ đề cho bài viết</b>
+                                    </label>
+                                    <input type="file" (change)="imageChange($event)" #logo>
+                                    <p>
+                                        <b>Xem trước</b>
+                                    </p>
+                                    <img [src]="srcPreview">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Mô tả</label>
+                                    <quill-editor #editorDescription></quill-editor>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Tag/Category cho bài viết</label>
+                                    <select class="form-control border-input" #tag>
+                                        <option value="Sự kiện">Sự kiện</option>
+                                        <option value="Tin tức khác">Tin tức khác</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nhập cho ngôn ngữ</label>
+                                    <select class="form-control border-input" #lang>
+                                        <option value="vn">Tiếng Việt</option>
+                                        <option value="en">Tiếng Anh</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="back();">
+                                Quay lại
+                            </button>
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="addNews();">
+                                Lưu thông tin
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<modal #noticeModal>
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">Thông báo</h4>
+    </modal-header>
+    <modal-body>
+        {{ noticeMessage }}
+    </modal-body>
+    <modal-footer [show-default-buttons]="false"></modal-footer>
+</modal>
+<spinner-component [spinnerShow]="flagSpinner"></spinner-component>

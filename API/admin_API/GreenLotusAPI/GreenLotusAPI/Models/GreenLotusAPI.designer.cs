@@ -42,6 +42,9 @@ namespace GreenLotusAPI.Models
     partial void InsertAboutUs(AboutUs instance);
     partial void UpdateAboutUs(AboutUs instance);
     partial void DeleteAboutUs(AboutUs instance);
+    partial void InsertBlog(Blog instance);
+    partial void UpdateBlog(Blog instance);
+    partial void DeleteBlog(Blog instance);
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
@@ -109,6 +112,14 @@ namespace GreenLotusAPI.Models
 			}
 		}
 		
+		public System.Data.Linq.Table<Blog> Blogs
+		{
+			get
+			{
+				return this.GetTable<Blog>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Role> Roles
 		{
 			get
@@ -128,6 +139,20 @@ namespace GreenLotusAPI.Models
 		public int updateUser([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_Users", DbType="Int")] System.Nullable<int> iD_Users, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Username", DbType="NVarChar(50)")] string username, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Address", DbType="NVarChar(200)")] string address, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Password", DbType="NVarChar(200)")] string password, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_Role", DbType="Int")] System.Nullable<int> iD_Role, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Status", DbType="Bit")] System.Nullable<bool> status)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_Users, username, address, password, iD_Role, status);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addBlog")]
+		public int addBlog([global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateCreate", DbType="DateTime")] System.Nullable<System.DateTime> dateCreate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tag", DbType="NVarChar(MAX)")] string tag, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Author", DbType="NVarChar(200)")] string author, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ImageTitle", DbType="NVarChar(MAX)")] string imageTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="VideoPath", DbType="NVarChar(MAX)")] string videoPath, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="NVarChar(MAX)")] string title)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), dateCreate, tag, author, imageTitle, videoPath, description, lang, title);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addClientSaid")]
+		public int addClientSaid([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="RoleName", DbType="NVarChar(200)")] string roleName, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PictureURL", DbType="NVarChar(MAX)")] string pictureURL, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), description, roleName, pictureURL, lang);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -156,6 +181,13 @@ namespace GreenLotusAPI.Models
 		public int deleteAboutPeople([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_AboutPeople", DbType="Int")] System.Nullable<int> iD_AboutPeople)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_AboutPeople);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deleteBlog")]
+		public int deleteBlog([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_Blog", DbType="Int")] System.Nullable<int> iD_Blog)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_Blog);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -194,6 +226,13 @@ namespace GreenLotusAPI.Models
 			return ((ISingleResult<getAllUserResult>)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getBlog")]
+		public ISingleResult<getBlogResult> getBlog()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<getBlogResult>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getUserByID")]
 		public ISingleResult<getUserByIDResult> getUserByID([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID", DbType="Int")] System.Nullable<int> iD)
 		{
@@ -209,9 +248,16 @@ namespace GreenLotusAPI.Models
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateAboutUs")]
-		public int updateAboutUs([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_AboutUs", DbType="Int")] System.Nullable<int> iD_AboutUs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhyChoose", DbType="NVarChar(MAX)")] string whyChoose, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OurMission", DbType="NVarChar(MAX)")] string ourMission, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang)
+		public int updateAboutUs([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_AboutUs", DbType="Int")] System.Nullable<int> iD_AboutUs, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="WhyChoose", DbType="NVarChar(MAX)")] string whyChoose, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="OurMission", DbType="NVarChar(MAX)")] string ourMission)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_AboutUs, description, whyChoose, ourMission, lang);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_AboutUs, description, whyChoose, ourMission);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.updateBlog")]
+		public int updateBlog([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_Blog", DbType="Int")] System.Nullable<int> iD_Blog, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DateCreate", DbType="DateTime")] System.Nullable<System.DateTime> dateCreate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tag", DbType="NVarChar(MAX)")] string tag, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Author", DbType="NVarChar(200)")] string author, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ImageTitle", DbType="NVarChar(MAX)")] string imageTitle, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="VideoPath", DbType="NVarChar(MAX)")] string videoPath, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Description", DbType="NVarChar(MAX)")] string description, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Lang", DbType="NVarChar(50)")] string lang, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Title", DbType="NVarChar(MAX)")] string title)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_Blog, dateCreate, tag, author, imageTitle, videoPath, description, lang, title);
 			return ((int)(result.ReturnValue));
 		}
 		
@@ -644,6 +690,8 @@ namespace GreenLotusAPI.Models
 		
 		private string _Lang;
 		
+		private string _Type;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -658,6 +706,8 @@ namespace GreenLotusAPI.Models
     partial void OnPictureURLChanged();
     partial void OnLangChanging(string value);
     partial void OnLangChanged();
+    partial void OnTypeChanging(string value);
+    partial void OnTypeChanged();
     #endregion
 		
 		public AboutPeople()
@@ -761,6 +811,26 @@ namespace GreenLotusAPI.Models
 					this._Lang = value;
 					this.SendPropertyChanged("Lang");
 					this.OnLangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="NVarChar(50)")]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this.OnTypeChanging(value);
+					this.SendPropertyChanging();
+					this._Type = value;
+					this.SendPropertyChanged("Type");
+					this.OnTypeChanged();
 				}
 			}
 		}
@@ -919,6 +989,260 @@ namespace GreenLotusAPI.Models
 					this._Lang = value;
 					this.SendPropertyChanged("Lang");
 					this.OnLangChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Blog")]
+	public partial class Blog : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_Blog;
+		
+		private System.Nullable<System.DateTime> _DateCreate;
+		
+		private string _Tag;
+		
+		private string _Author;
+		
+		private string _ImageTitle;
+		
+		private string _VideoPath;
+		
+		private string _Description;
+		
+		private string _Lang;
+		
+		private string _Title;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_BlogChanging(int value);
+    partial void OnID_BlogChanged();
+    partial void OnDateCreateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateCreateChanged();
+    partial void OnTagChanging(string value);
+    partial void OnTagChanged();
+    partial void OnAuthorChanging(string value);
+    partial void OnAuthorChanged();
+    partial void OnImageTitleChanging(string value);
+    partial void OnImageTitleChanged();
+    partial void OnVideoPathChanging(string value);
+    partial void OnVideoPathChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    partial void OnLangChanging(string value);
+    partial void OnLangChanged();
+    partial void OnTitleChanging(string value);
+    partial void OnTitleChanged();
+    #endregion
+		
+		public Blog()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Blog", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_Blog
+		{
+			get
+			{
+				return this._ID_Blog;
+			}
+			set
+			{
+				if ((this._ID_Blog != value))
+				{
+					this.OnID_BlogChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Blog = value;
+					this.SendPropertyChanged("ID_Blog");
+					this.OnID_BlogChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateCreate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreate
+		{
+			get
+			{
+				return this._DateCreate;
+			}
+			set
+			{
+				if ((this._DateCreate != value))
+				{
+					this.OnDateCreateChanging(value);
+					this.SendPropertyChanging();
+					this._DateCreate = value;
+					this.SendPropertyChanged("DateCreate");
+					this.OnDateCreateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tag", DbType="NVarChar(MAX)")]
+		public string Tag
+		{
+			get
+			{
+				return this._Tag;
+			}
+			set
+			{
+				if ((this._Tag != value))
+				{
+					this.OnTagChanging(value);
+					this.SendPropertyChanging();
+					this._Tag = value;
+					this.SendPropertyChanged("Tag");
+					this.OnTagChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="NVarChar(200)")]
+		public string Author
+		{
+			get
+			{
+				return this._Author;
+			}
+			set
+			{
+				if ((this._Author != value))
+				{
+					this.OnAuthorChanging(value);
+					this.SendPropertyChanging();
+					this._Author = value;
+					this.SendPropertyChanged("Author");
+					this.OnAuthorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageTitle", DbType="NVarChar(MAX)")]
+		public string ImageTitle
+		{
+			get
+			{
+				return this._ImageTitle;
+			}
+			set
+			{
+				if ((this._ImageTitle != value))
+				{
+					this.OnImageTitleChanging(value);
+					this.SendPropertyChanging();
+					this._ImageTitle = value;
+					this.SendPropertyChanged("ImageTitle");
+					this.OnImageTitleChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VideoPath", DbType="NVarChar(MAX)")]
+		public string VideoPath
+		{
+			get
+			{
+				return this._VideoPath;
+			}
+			set
+			{
+				if ((this._VideoPath != value))
+				{
+					this.OnVideoPathChanging(value);
+					this.SendPropertyChanging();
+					this._VideoPath = value;
+					this.SendPropertyChanged("VideoPath");
+					this.OnVideoPathChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang", DbType="NVarChar(50)")]
+		public string Lang
+		{
+			get
+			{
+				return this._Lang;
+			}
+			set
+			{
+				if ((this._Lang != value))
+				{
+					this.OnLangChanging(value);
+					this.SendPropertyChanging();
+					this._Lang = value;
+					this.SendPropertyChanged("Lang");
+					this.OnLangChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(MAX)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this.OnTitleChanging(value);
+					this.SendPropertyChanging();
+					this._Title = value;
+					this.SendPropertyChanged("Title");
+					this.OnTitleChanged();
 				}
 			}
 		}
@@ -1205,6 +1529,8 @@ namespace GreenLotusAPI.Models
 		
 		private string _Lang;
 		
+		private string _Type;
+		
 		public getAboutPeopleResult()
 		{
 		}
@@ -1285,6 +1611,22 @@ namespace GreenLotusAPI.Models
 				if ((this._Lang != value))
 				{
 					this._Lang = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Type", DbType="NVarChar(50)")]
+		public string Type
+		{
+			get
+			{
+				return this._Type;
+			}
+			set
+			{
+				if ((this._Type != value))
+				{
+					this._Type = value;
 				}
 			}
 		}
@@ -1615,6 +1957,176 @@ namespace GreenLotusAPI.Models
 				if ((this._Status != value))
 				{
 					this._Status = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getBlogResult
+	{
+		
+		private int _ID_Blog;
+		
+		private System.Nullable<System.DateTime> _DateCreate;
+		
+		private string _Tag;
+		
+		private string _Author;
+		
+		private string _ImageTitle;
+		
+		private string _VideoPath;
+		
+		private string _Description;
+		
+		private string _Lang;
+		
+		private string _Title;
+		
+		public getBlogResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Blog", DbType="Int NOT NULL")]
+		public int ID_Blog
+		{
+			get
+			{
+				return this._ID_Blog;
+			}
+			set
+			{
+				if ((this._ID_Blog != value))
+				{
+					this._ID_Blog = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateCreate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateCreate
+		{
+			get
+			{
+				return this._DateCreate;
+			}
+			set
+			{
+				if ((this._DateCreate != value))
+				{
+					this._DateCreate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Tag", DbType="NVarChar(MAX)")]
+		public string Tag
+		{
+			get
+			{
+				return this._Tag;
+			}
+			set
+			{
+				if ((this._Tag != value))
+				{
+					this._Tag = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Author", DbType="NVarChar(200)")]
+		public string Author
+		{
+			get
+			{
+				return this._Author;
+			}
+			set
+			{
+				if ((this._Author != value))
+				{
+					this._Author = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ImageTitle", DbType="NVarChar(MAX)")]
+		public string ImageTitle
+		{
+			get
+			{
+				return this._ImageTitle;
+			}
+			set
+			{
+				if ((this._ImageTitle != value))
+				{
+					this._ImageTitle = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VideoPath", DbType="NVarChar(MAX)")]
+		public string VideoPath
+		{
+			get
+			{
+				return this._VideoPath;
+			}
+			set
+			{
+				if ((this._VideoPath != value))
+				{
+					this._VideoPath = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="NVarChar(MAX)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this._Description = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Lang", DbType="NVarChar(50)")]
+		public string Lang
+		{
+			get
+			{
+				return this._Lang;
+			}
+			set
+			{
+				if ((this._Lang != value))
+				{
+					this._Lang = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Title", DbType="NVarChar(MAX)")]
+		public string Title
+		{
+			get
+			{
+				return this._Title;
+			}
+			set
+			{
+				if ((this._Title != value))
+				{
+					this._Title = value;
 				}
 			}
 		}

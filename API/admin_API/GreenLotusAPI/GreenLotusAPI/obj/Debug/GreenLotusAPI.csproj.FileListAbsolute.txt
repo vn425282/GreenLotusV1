@@ -119,6 +119,6 @@ C:\Users\Nguyen\Documents\projects\GreenLotusV1\API\admin_API\GreenLotusAPI\Gree
 \\Mac\Home\Documents\GreenLotusV1\API\admin_API\GreenLotusAPI\GreenLotusAPI\bin\System.Net.Http.Formatting.xml
 \\Mac\Home\Documents\GreenLotusV1\API\admin_API\GreenLotusAPI\GreenLotusAPI\bin\System.Web.Http.xml
 \\Mac\Home\Documents\GreenLotusV1\API\admin_API\GreenLotusAPI\GreenLotusAPI\bin\System.Web.Http.WebHost.xml
-\\Mac\Home\Documents\GreenLotusV1\API\admin_API\GreenLotusAPI\GreenLotusAPI\obj\Debug\GreenLotusAPI.csprojResolveAssemblyReference.cache
 \\Mac\Home\Documents\GreenLotusV1\API\admin_API\GreenLotusAPI\GreenLotusAPI\obj\Debug\GreenLotusAPI.dll
 \\Mac\Home\Documents\GreenLotusV1\API\admin_API\GreenLotusAPI\GreenLotusAPI\obj\Debug\GreenLotusAPI.pdb
+\\Mac\Home\Documents\GreenLotusV1\API\admin_API\GreenLotusAPI\GreenLotusAPI\obj\Debug\GreenLotusAPI.csprojResolveAssemblyReference.cache

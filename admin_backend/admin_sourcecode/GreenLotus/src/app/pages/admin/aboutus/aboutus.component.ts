@@ -31,7 +31,7 @@ export class AboutUsComponent implements OnInit {
     ngOnInit() {
         // this.flagSpinner = true;
         this.tableData1 = {
-            headerRow: ['Số thứ tự', 'Mô tả', 'Vì sao chọn chúng tôi', 'Sứ mệnh', 'Ngôn ngữ'],
+            headerRow: ['Số thứ tự', 'Mô tả', 'Vì sao chọn chúng tôi', 'Sứ mệnh', 'Ngôn ngữ', 'Công cụ'],
             dataRows: [
 
             ]
@@ -47,17 +47,17 @@ export class AboutUsComponent implements OnInit {
 
                 if(item.Description.length > 100)
                 {
-                    item.Description = item.Description.substring(0, 100) + ' ...';
+                    item.Description = '<a href="/pages/admin/update-aboutus/' + item.ID_AboutUs + '">Xem chi tiết</a>'
                 }
 
                 if(item.WhyChoose.length > 100)
                 {
-                    item.WhyChoose = item.WhyChoose.substring(0, 100) + ' ...';
+                    item.WhyChoose = '<a href="/pages/admin/update-aboutus/' + item.ID_AboutUs + '">Xem chi tiết</a>'
                 }
 
                 if(item.OurMission.length > 100)
                 {
-                    item.OurMission = item.OurMission.substring(0, 100) + ' ...';
+                    item.OurMission = '<a href="/pages/admin/update-aboutus/' + item.ID_AboutUs + '">Xem chi tiết</a>'
                 }
 
                 this.tableData1.dataRows.push([

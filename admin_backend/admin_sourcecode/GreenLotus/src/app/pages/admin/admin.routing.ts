@@ -26,12 +26,18 @@ export const routes: Routes = [
             { path: 'add-user', loadChildren: './idcardregister/idcardregister.module#ListPartnerModule' },
             { path: 'add-partner', loadChildren: './add-partner/add-partner.module#AddPartnerModule' },
             { path: 'add-people', loadChildren: './add-people/add-people.module#AddPeopleModule' },
+            { path: 'add-clientsaid', loadChildren: './add-clientsaid/add-clientsaid.module#AddClientSaidModule' },
+            { path: 'add-news', loadChildren: './add-news/add-news.module#AddNewsModule' },
             { path: 'update-user/:userId', loadChildren: './updateUser/updateUser.module#UpdateUserModule' },
             { path: 'update-partner/:partnerId', loadChildren: './update-partner/update-partner.module#UpdatePartnerModule' },
             { path: 'update-people/:peopleId', loadChildren: './update-people/update-people.module#UpdatePeopleModule' },
+            { path: 'update-clientsaid/:clientSaidId', loadChildren: './update-clientsaid/update-clientsaid.module#UpdateClientSaidModule' },
             { path: 'update-aboutus/:aboutUsId', loadChildren: './update-aboutus/update-aboutus.module#UpdateAboutUsModule' },
+            { path: 'update-news/:blogId', loadChildren: './update-news/update-news.module#UpdateNewsModule' },
             { path: 'list-people', loadChildren: './listpeople/listpeople.module#ListPeopleModule' },
-            { path: 'list-aboutus', loadChildren: './aboutus/aboutus.module#AboutUsModule' }
+            { path: 'list-aboutus', loadChildren: './aboutus/aboutus.module#AboutUsModule' },
+            { path: 'list-clientsaid', loadChildren: './listclientsaid/listclientsaid.module#ListClientSaidModule' },
+            { path: 'list-news', loadChildren: './list-news/list-news.module#ListNewsModule' },
         ]
     }
 ]

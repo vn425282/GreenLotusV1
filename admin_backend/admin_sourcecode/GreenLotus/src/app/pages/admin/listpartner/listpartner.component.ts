@@ -46,7 +46,7 @@ export class ListPartnerComponent implements OnInit {
                 }
                 this.tableData1.dataRows.push([
                     'KH-' + item.ID_AboutPartner,
-                    '<img src="' + this._shared.getBaseURLWithoutFlash() + item.PictureURL + '" />',
+                    '<img width="128px;" src="' + this._shared.getBaseURLWithoutFlash() + item.PictureURL + '" />',
                     item.URLReferences,
                     item.Description,
                     lang
@@ -79,7 +79,7 @@ export class ListPartnerComponent implements OnInit {
                     }
                     this.tableData1.dataRows.push([
                         'KH-' + item.ID_AboutPartner,
-                        '<img src="' + this._shared.getBaseURLWithoutFlash() + item.PictureURL + '" />',
+                        '<img width="128px;" src="' + this._shared.getBaseURLWithoutFlash() + item.PictureURL + '" />',
                         item.URLReferences,
                         item.Description,
                         item.Lang,

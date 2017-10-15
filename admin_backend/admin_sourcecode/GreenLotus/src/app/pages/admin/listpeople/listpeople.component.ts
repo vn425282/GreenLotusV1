@@ -40,22 +40,24 @@ export class ListPeopleComponent implements OnInit {
         this._p.getAboutPeople().subscribe(data => {
             this.flagSpinner = false;
             for (const item of data.results) {
-                let lang = 'Việt Nam';
-                if (item.Lang === 'EN') {
-                    lang = 'Tiếng Anh';
-                }
+                if (item.Type === 'people') {
+                    let lang = 'Việt Nam';
+                    if (item.Lang === 'EN') {
+                        lang = 'Tiếng Anh';
+                    }
 
-                if (item.Description.length > 50) {
-                    item.Description = item.Description.substring(0, 50) + ' ...';
-                }
+                    if (item.Description.length > 50) {
+                        item.Description = item.Description.substring(0, 50) + ' ...';
+                    }
 
-                this.tableData1.dataRows.push([
-                    'KH-' + item.ID_AboutPeople,
-                    '<img src="' + this._shared.getBaseURLWithoutFlash() + item.PictureURL + '" />',
-                    item.Description,
-                    item.RoleName,
-                    lang
-                ]);
+                    this.tableData1.dataRows.push([
+                        'KH-' + item.ID_AboutPeople,
+                        '<img width="128px;" src="' + this._shared.getBaseURLWithoutFlash() + item.PictureURL + '" />',
+                        item.Description,
+                        item.RoleName,
+                        lang
+                    ]);
+                }
             }
         });
     }
@@ -78,18 +80,19 @@ export class ListPeopleComponent implements OnInit {
                 this.noticeModal.close();
                 this.flagSpinner = false;
                 for (const item of data.results) {
-                    let lang = 'Việt Nam';
-                    if (item.Lang === 'EN') {
-                        lang = 'Tiếng Anh';
+                    if (item.Type === 'people') {
+                        let lang = 'Việt Nam';
+                        if (item.Lang === 'EN') {
+                            lang = 'Tiếng Anh';
+                        }
+                        this.tableData1.dataRows.push([
+                            'KH-' + item.ID_AboutPeople,
+                            '<img width="128px;" src="' + this._shared.getBaseURLWithoutFlash() + item.PictureURL + '" />',
+                            item.Description,
+                            item.RoleName,
+                            lang
+                        ]);
                     }
-                    this.tableData1.dataRows.push([
-                        'KH-' + item.ID_AboutPartner,
-                        '<img src="' + this._shared.getBaseURLWithoutFlash() + item.PictureURL + '" />',
-                        item.URLReferences,
-                        item.Description,
-                        item.Lang,
-                        item.ID_AboutPartner
-                    ]);
                 }
             });
         });

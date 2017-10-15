@@ -1,0 +1,77 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-8 col-md-7">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Thêm phản hồi từ khách hàng</h4>
+                </div>
+                <div class="content">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label><b>Hình khách hàng </b><br> - Lưu ý, hệ thống giữ nguyên size của logo ( không tự động cân chỉnh ) nên vui lòng chọn ảnh có size phù hợp cho website.<br> - Chỉ chấp nhận file jpg, png và gif</label>
+                                    <input type="file" (change)="logoChangeFU($event)" #logo>
+                                    <p><b>Xem trước</b></p>
+                                    <img [src]="srcPreview">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Chức vụ</label>
+                                    <input type="text" class="form-control border-input" placeholder="Địa chỉ website" value="" #roleName>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Mô tả lời nói</label>
+                                    <!-- <input type="text" class="form-control border-input" placeholder="Mô tả" value="" #description> -->
+                                    <textarea rows="4" cols="50" class="form-control border-input" #description placeholder="Mô tả"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label>Nhập cho ngôn ngữ</label>
+                                    <select class="form-control border-input" #lang>
+                                        <option value="vn">Tiếng Việt</option>
+                                        <option value="en">Tiếng Anh</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="back();">
+                                Quay lại
+                            </button>
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="addClientSaid();">
+                                Lưu thông tin
+                            </button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<modal #noticeModal>
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">Thông báo</h4>
+    </modal-header>
+    <modal-body>
+        {{ noticeMessage }}
+    </modal-body>
+    <modal-footer [show-default-buttons]="false"></modal-footer>
+</modal>
+<spinner-component [spinnerShow]="flagSpinner"></spinner-component>
