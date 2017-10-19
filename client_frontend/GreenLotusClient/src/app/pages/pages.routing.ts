@@ -8,7 +8,9 @@ export const routes: Routes = [
         component: PagesComponent,
         children: [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', loadChildren: './home/home.module#HomeModule' }
+            { path: 'home', loadChildren: './home/home.module#HomeModule' },
+            { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutUsModule' },
+            { path: 'contact', loadChildren: './contact/contact.module#ContactModule' }
         ]
     }
 ]
