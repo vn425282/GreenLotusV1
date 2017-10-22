@@ -140,7 +140,7 @@ dl, dt, dd, ol, ul, li {
 body {
 	line-height: 1.5;
 	color: #555;
-	font-family: 'Lato', sans-serif;
+	/* font-family: 'Lato', sans-serif; */
 }
 
 a {
@@ -11340,7 +11340,7 @@ input[type=checkbox]:not(:checked) + label.error { display: block !important; }
 /* Fancy Title - Bottom Short Border
 -----------------------------------------------------------------*/
 
-.fancy-title.title-dotted-border { background: url('images/icons/dotted.png') repeat-x center; }
+.fancy-title.title-dotted-border { background: url('../../assets/images/icons/dotted.png') repeat-x center; }
 
 
 /* Sub Heading

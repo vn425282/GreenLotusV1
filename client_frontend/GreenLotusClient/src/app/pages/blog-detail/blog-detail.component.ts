@@ -1,4 +1,4 @@
-import { Component, Inject, ViewChild, ElementRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ElementRef, Inject, OnInit } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import * as spinner from 'ng2-component-spinner';
 import { DOCUMENT } from '@angular/common';
@@ -6,13 +6,19 @@ import { DOCUMENT } from '@angular/common';
 declare var $: any;
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-blog-detail',
+  templateUrl: './blog-detail.component.html',
+  styleUrls: ['./blog-detail.component.css']
 })
 
-export class HomeComponent implements OnInit  {
-  ngOnInit(): void {
+export class BlogDetailComponent implements OnInit {
+  color = '#00f';
+  @ViewChild('myScript') myScript: ElementRef;
+  constructor(@Inject(DOCUMENT) public document, public router: Router) {
+
+  }
+
+  ngOnInit() {
     var s = this.document.createElement("script");
     s.type = "text/javascript";
     s.src = "../../assets/js/plugins.js";
@@ -22,10 +28,5 @@ export class HomeComponent implements OnInit  {
     a.type = "text/javascript";
     a.src = "../../assets/js/functions.js";
     this.myScript.nativeElement.appendChild(a);
-  }
-  color = '#00f';
-  @ViewChild('myScript') myScript: ElementRef;
-  constructor(@Inject(DOCUMENT) public document, public router: Router) {
-
   }
 }

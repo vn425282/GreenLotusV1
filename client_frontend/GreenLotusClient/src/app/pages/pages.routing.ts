@@ -10,7 +10,9 @@ export const routes: Routes = [
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', loadChildren: './home/home.module#HomeModule' },
             { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutUsModule' },
-            { path: 'contact', loadChildren: './contact/contact.module#ContactModule' }
+            { path: 'contact', loadChildren: './contact/contact.module#ContactModule' },
+            { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
+            { path: 'blog-detail', loadChildren: './blog-detail/blog-detail.module#BlogDetailModule' },
         ]
     }
 ]

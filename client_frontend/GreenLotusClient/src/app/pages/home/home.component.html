@@ -8,10 +8,10 @@
             </div>
             <!-- Logo ============================================= -->
             <div id="logo">
-                <a [routerLink]="['/pages/home']" class="standard-logo" data-dark-logo="../../../assets/images/logo-dark.png">
+                <a href='/pages/home' class="standard-logo" data-dark-logo="../../../assets/images/logo-dark.png">
                     <img src="../../../assets/images/logo.png" alt="Green Lotus Logo">
                 </a>
-                <a [routerLink]="['/pages/home']" class="retina-logo" data-dark-logo="../../../assets/img/logo-greenlotus.png">
+                <a href='/pages/home' class="retina-logo" data-dark-logo="../../../assets/img/logo-greenlotus.png">
                     <img src="../../../assets/img/logo-greenlotus.png" alt="Green Lotus Logo">
                 </a>
             </div>
@@ -22,28 +22,28 @@
 
                 <ul>
                     <li class="current">
-                        <a href='/pages/home'>
+                        <a [routerLink]="['/pages/home']">
                             <div>Trang chủ</div>
                         </a>
                     </li>
                     <li class="">
-                        <a href='/pages/aboutus'>
+                        <a [routerLink]="['/pages/aboutus']">
                             <div>Về chúng tôi</div>
                         </a>
                     </li>
                     <li class="">
-                        <a [routerLink]="['/pages/aboutus']">
+                        <a [routerLink]="['/pages/blog']">
                             <div>Tin tức</div>
                         </a>
                     </li>
-                    <li class="">
+                    <!-- <li class="">
                         <a [routerLink]="['/pages/aboutus']">
                             <div>Đối tác</div>
                         </a>
-                    </li>
-                    
+                    </li> -->
+
                     <li class="">
-                            <a href='/pages/contact'>
+                        <a [routerLink]="['/pages/contact']">
                             <div>Liên hệ</div>
                         </a>
                     </li>
@@ -119,14 +119,14 @@
                     <div class="container clearfix">
                         <div class="slider-caption slider-caption-center">
                             <h2 data-caption-animate="fadeInUp">Chào mừng đến với Green Lotus </h2>
-                            <p data-caption-animate="fadeInUp" data-caption-delay="200">Chúng tôi là đơn vị truyền thông và tổ chức sự kiện số 1 Việt Nam.</p>
+                            <p data-caption-animate="fadeInUp" data-caption-delay="200">Green Lotus là đơn vị đầu tư - tư vấn các lĩnh vực trong thương mại</p>
                         </div>
                     </div>
                 </div>
                 <div class="swiper-slide dark">
                     <div class="container clearfix">
                         <div class="slider-caption slider-caption-center">
-                            <h2 data-caption-animate="fadeInUp">Đầu tư và tư vấn thương mại các lĩnh vực</h2>
+                            <h2 data-caption-animate="fadeInUp">Green Lotus là đơn vị truyền thông và tổ chức sự kiện số 1 Việt Nam.</h2>
                             <!-- <p data-caption-animate="fadeInUp" data-caption-delay="200">Looks beautiful &amp; ultra-sharp on Retina Screen Displays. Powerful Layout with Responsive
                                 functionality that can be adapted to any screen size.</p> -->
                         </div>
@@ -174,12 +174,17 @@
 
                 <div class="col-lg-5">
                     <div class="heading-block topmargin">
-                        <h1>Đôi nét về Green Lotus</h1>
+                        <h1>
+                            <a [routerLink]="['/pages/aboutus']">Đôi nét về Green Lotus</a>
+                        </h1>
                     </div>
                     <p class="lead">Green Lotus là công ty tiên phong trong các hoạt động thương mại bền vững nhằm định hướng thị trường
                         tiêu dùng Xanh tại Việt Nam, và đưa các thương hiệu Việt Nam Xanh hội nhập thị trường quốc tế. Green
                         Lotus trải dài hoạt động trên các ngành Nông nghiệp, Giáo dục, Y tế, Ngoại thương, Năng lượng, Công
-                        nghệ cao và vận hành đa dạng các hoạt động tư vấn, đầu tư, thương mại, truyền thông và sự kiện ...</p>
+                        nghệ cao và vận hành đa dạng các hoạt động tư vấn, đầu tư, thương mại, truyền thông và sự kiện ...
+                        <br>
+                        <a [routerLink]="['/pages/aboutus']">Xem thêm về chúng tôi</a>
+                    </p>
                 </div>
 
                 <div class="col-lg-7">
@@ -194,7 +199,7 @@
 
             </div>
         </div>
-        <div class="section nobottommargin">
+        <!-- <div class="section nobottommargin">
             <div class="container clear-bottommargin clearfix">
 
                 <div class="row topmargin-sm clearfix">
@@ -232,9 +237,9 @@
                 </div>
 
             </div>
-        </div>
+        </div> -->
 
-        <div class="container clearfix">
+        <!-- <div class="container clearfix">
 
             <div class="row topmargin-lg bottommargin-sm">
 
@@ -318,7 +323,7 @@
 
             </div>
 
-        </div>
+        </div> -->
 
 
 
@@ -344,7 +349,7 @@
                         </a>
                     </div>
                     <h3>Retina Ready Graphics</h3>
-                    <p>Looks beautiful &amp; ultra-sharp on Retina Displays with Retina Icons, Fonts &amp; Images.</p>
+                    <p>Phù hợp với máy tính bàn, máy tính bảng và Các thiết bị di động</p>
                 </div>
             </div>
 
@@ -356,7 +361,7 @@
                         </a>
                     </div>
                     <h3>Powerful Performance</h3>
-                    <p>Optimized code that are completely customizable and deliver unmatched fast performance.</p>
+                    <p>Tối ưu hoá website cho việc tải trang nhanh hơn</p>
                 </div>
             </div>
 
@@ -370,7 +375,7 @@
                         </a>
                     </div>
                     <h3>HTML5 Video</h3>
-                    <p>Canvas provides support for Native HTML5 Videos that can be added to a Full Width Background.</p>
+                    <p>Xem video ngay trên trang web bằng Popup</p>
                 </div>
             </div>
 
@@ -382,7 +387,7 @@
                         </a>
                     </div>
                     <h3>Parallax Support</h3>
-                    <p>Display your Content attractively using Parallax Sections that have unlimited customizable areas.</p>
+                    <p>Hiển thị nội dung 1 cách trực quan, gọn nhẹ</p>
                 </div>
             </div>
 
@@ -452,21 +457,21 @@
 
             <article class="portfolio-item pf-media pf-icons">
                 <div class="portfolio-image">
-                    <a href="portfolio-single.html">
+                    <a href='/pages/blog-detail'>
                         <img src="../../../assets/images/portfolio/4/1.jpg" alt="Open Imagination">
                     </a>
                     <div class="portfolio-overlay">
                         <a href="../../../assets/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image">
                             <i class="icon-line-plus"></i>
                         </a>
-                        <a href="portfolio-single.html" class="right-icon">
+                        <a href='/pages/blog-detail' class="right-icon">
                             <i class="icon-line-ellipsis"></i>
                         </a>
                     </div>
                 </div>
                 <div class="portfolio-desc">
                     <h3>
-                        <a href="portfolio-single.html">Open Imagination</a>
+                        <a href='/pages/blog-detail'>Open Imagination</a>
                     </h3>
                     <span>
                         <a href="#">Media</a>,
@@ -793,52 +798,52 @@
                 </div>
 
                 <div class="col-md-3 col-sm-6 bottommargin">
-                        <div class="ipost clearfix">
-                            <div class="entry-image">
-                                <a href="#">
-                                    <img class="image_fade" src="../../../assets/images/magazine/thumb/3.jpg" alt="Image">
-                                </a>
-                            </div>
-                            <div class="entry-title">
-                                <h3>
-                                    <a href="blog-single.html">Tiêu đề, Tiêu đề. Tiêu đề</a>
-                                </h3>
-                            </div>
-                            <ul class="entry-meta clearfix">
-                                <li>
-                                    <i class="icon-calendar3"></i> 10/10/2017</li>
-                                <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
-                            </ul>
-                            <div class="entry-content">
-                                <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
-                                    tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
-                            </div>
+                    <div class="ipost clearfix">
+                        <div class="entry-image">
+                            <a href="#">
+                                <img class="image_fade" src="../../../assets/images/magazine/thumb/3.jpg" alt="Image">
+                            </a>
+                        </div>
+                        <div class="entry-title">
+                            <h3>
+                                <a href="blog-single.html">Tiêu đề, Tiêu đề. Tiêu đề</a>
+                            </h3>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li>
+                                <i class="icon-calendar3"></i> 10/10/2017</li>
+                            <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
+                        </ul>
+                        <div class="entry-content">
+                            <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
+                                tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
                         </div>
                     </div>
+                </div>
 
-                    <div class="col-md-3 col-sm-6 bottommargin">
-                            <div class="ipost clearfix">
-                                <div class="entry-image">
-                                    <a href="#">
-                                        <img class="image_fade" src="../../../assets/images/magazine/thumb/4.jpg" alt="Image">
-                                    </a>
-                                </div>
-                                <div class="entry-title">
-                                    <h3>
-                                        <a href="blog-single.html">Tiêu đề, Tiêu đề. Tiêu đề</a>
-                                    </h3>
-                                </div>
-                                <ul class="entry-meta clearfix">
-                                    <li>
-                                        <i class="icon-calendar3"></i> 10/10/2017</li>
-                                    <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
-                                </ul>
-                                <div class="entry-content">
-                                    <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
-                                        tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
-                                </div>
-                            </div>
+                <div class="col-md-3 col-sm-6 bottommargin">
+                    <div class="ipost clearfix">
+                        <div class="entry-image">
+                            <a href="#">
+                                <img class="image_fade" src="../../../assets/images/magazine/thumb/4.jpg" alt="Image">
+                            </a>
                         </div>
+                        <div class="entry-title">
+                            <h3>
+                                <a href="blog-single.html">Tiêu đề, Tiêu đề. Tiêu đề</a>
+                            </h3>
+                        </div>
+                        <ul class="entry-meta clearfix">
+                            <li>
+                                <i class="icon-calendar3"></i> 10/10/2017</li>
+                            <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
+                        </ul>
+                        <div class="entry-content">
+                            <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
+                                tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
