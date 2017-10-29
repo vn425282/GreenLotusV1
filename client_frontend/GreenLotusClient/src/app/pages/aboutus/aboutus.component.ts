@@ -2,6 +2,9 @@ import { Component, ViewChild, ElementRef, Inject, OnInit } from '@angular/core'
 import { RouterModule, Router } from '@angular/router';
 import * as spinner from 'ng2-component-spinner';
 import { DOCUMENT } from '@angular/common';
+import { AboutPeopleService } from 'app/services/about-people/about-people.service';
+import { SharedService } from 'app/services/shared/shared.service';
+import { AboutUsService } from 'app/services/aboutus/aboutus.service';
 
 declare var $: any;
 
@@ -14,7 +17,16 @@ declare var $: any;
 export class AboutUsComponent implements OnInit {
   color = '#00f';
   @ViewChild('myScript') myScript: ElementRef;
-  constructor(@Inject(DOCUMENT) public document, public router: Router) {
+
+  public listPeople = [];
+  public listAboutPeople = [];
+  public listAboutUs = [];
+
+  constructor( @Inject(DOCUMENT) public document,
+    public aboutPeopleService: AboutPeopleService,
+    public aboutUsService: AboutUsService,
+    public _s: SharedService,
+    public router: Router) {
 
   }
 
@@ -28,5 +40,24 @@ export class AboutUsComponent implements OnInit {
     a.type = "text/javascript";
     a.src = "../../assets/js/functions.js";
     this.myScript.nativeElement.appendChild(a);
+
+    this.aboutPeopleService.getAboutPeople().subscribe(data => {
+      console.log("getAboutPeople", data);
+      for (const item of data.results) {
+        if (item.Type === 'people') {
+          console.log("getAboutPeople", this.listPeople);
+          this.listPeople.push(item);
+        }
+
+        if (item.Type === 'clientsaid') {
+          this.listAboutPeople.push(item);
+        }
+      }
+    });
+
+    this.aboutUsService.getAboutUs().subscribe( data => {
+      console.log("getAboutUs", data);
+      this.listAboutUs = data.results;
+    });
   }
 }

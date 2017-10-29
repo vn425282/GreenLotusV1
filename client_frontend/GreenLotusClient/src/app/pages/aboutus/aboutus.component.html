@@ -42,9 +42,9 @@
                             <div>Đối tác</div>
                         </a>
                     </li> -->
-                    
+
                     <li class="">
-                            <a [routerLink]="['/pages/contact']">
+                        <a [routerLink]="['/pages/contact']">
                             <div>Liên hệ</div>
                         </a>
                     </li>
@@ -88,39 +88,48 @@
     <div class="content-wrap">
 
 
-				<div class="container clearfix">
-                        
-                                            <div class="col_one_third">
-                        
-                                                <div class="heading-block fancy-title nobottomborder title-bottom-border">
-                                                    <h4>Vì sao chọn <span>GreenLotus</span>.</h4>
-                                                </div>
-                        
-                                                <p>Chúng tôi là đơn vị tốt nhất Việt Nam. Chúng tôi là đơn vị tốt nhất Việt Nam. Chúng tôi là đơn vị tốt nhất Việt Nam. Chúng tôi là đơn vị tốt nhất Việt Nam. Chúng tôi là đơn vị tốt nhất Việt Nam.Chúng tôi là đơn vị tốt nhất Việt Nam. Chúng tôi là đơn vị tốt nhất Việt Nam.</p>
-                        
-                                            </div>
-                        
-                                            <div class="col_one_third">
-                        
-                                                <div class="heading-block fancy-title nobottomborder title-bottom-border">
-                                                    <h4>Nhiệm vụ của <span>GreenLotus</span>.</h4>
-                                                </div>
-                        
-                                                <p>Hợp tác và cùng phát triển. Hợp tác và cùng phát triển Hợp tác và cùng phát triển Hợp tác và cùng phát triển Hợp tác và cùng phát triển Hợp tác và cùng phát triển Hợp tác và cùng phát triển Hợp tác và cùng phát triển Hợp tác và cùng phát triển Hợp tác và cùng phát triển</p>
-                        
-                                            </div>
-                        
-                                            <div class="col_one_third col_last">
-                        
-                                                <div class="heading-block fancy-title nobottomborder title-bottom-border">
-                                                    <h4>Giá trị <span>tạo ra</span>.</h4>
-                                                </div>
-                        
-                                                <p>Tạo nên giá trị. Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị</p>
-                        
-                                            </div>
-                        
-                                        </div>
+        <div class="container clearfix">
+
+            <div class="col_one_third">
+
+                <div class="heading-block fancy-title nobottomborder title-bottom-border">
+                    <h4>Vì sao chọn
+                        <span>GreenLotus</span>.</h4>
+                </div>
+
+                <p>Chúng tôi là đơn vị tốt nhất Việt Nam. Chúng tôi là đơn vị tốt nhất Việt Nam. Chúng tôi là đơn vị tốt nhất
+                    Việt Nam. Chúng tôi là đơn vị tốt nhất Việt Nam. Chúng tôi là đơn vị tốt nhất Việt Nam.Chúng tôi là đơn
+                    vị tốt nhất Việt Nam. Chúng tôi là đơn vị tốt nhất Việt Nam.</p>
+
+            </div>
+
+            <div class="col_one_third">
+
+                <div class="heading-block fancy-title nobottomborder title-bottom-border">
+                    <h4>Nhiệm vụ của
+                        <span>GreenLotus</span>.</h4>
+                </div>
+
+                <p>Hợp tác và cùng phát triển. Hợp tác và cùng phát triển Hợp tác và cùng phát triển Hợp tác và cùng phát triển
+                    Hợp tác và cùng phát triển Hợp tác và cùng phát triển Hợp tác và cùng phát triển Hợp tác và cùng phát
+                    triển Hợp tác và cùng phát triển Hợp tác và cùng phát triển</p>
+
+            </div>
+
+            <div class="col_one_third col_last">
+
+                <div class="heading-block fancy-title nobottomborder title-bottom-border">
+                    <h4>Giá trị
+                        <span>tạo ra</span>.</h4>
+                </div>
+
+                <p>Tạo nên giá trị. Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên
+                    giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị
+                    Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị Tạo nên giá trị</p>
+
+            </div>
+
+        </div>
 
         <div class="container clearfix">
 
@@ -171,19 +180,17 @@
 
             <div class="row clearfix">
 
-                <div class="col-md-6 bottommargin">
+                <div class="col-md-6 bottommargin" *ngFor="let item of listPeople">
                     <div class="team team-list clearfix">
                         <div class="team-image">
-                            <img src="../../../assets/images/team/3.jpg" alt="John Doe">
+                            <img src="{{ _s.baseURL + item.PictureURL }}" alt="{{ item.RoleName }}">
                         </div>
                         <div class="team-desc">
                             <div class="team-title">
-                                <h4>John Doe</h4>
-                                <span>CEO</span>
+                                <span>{{ item.RoleName }}</span>
                             </div>
                             <div class="team-content">
-                                <p>Carbon emissions reductions giving, legitimize amplify non-partisan Aga Khan. Policy dialogue
-                                    assessment expert free-speech cornerstone disruptor freedom. Cesar Chavez empower.</p>
+                                <p>{{ item.Description }}</p>
                             </div>
                             <a href="#" class="social-icon si-rounded si-small si-light si-facebook">
                                 <i class="icon-facebook"></i>
@@ -200,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- 
                 <div class="col-md-6 bottommargin">
                     <div class="team team-list clearfix">
                         <div class="team-image">
@@ -289,7 +296,7 @@
                             </a>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
             </div>
 
@@ -303,48 +310,48 @@
             <div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
                 <div class="flexslider">
                     <div class="slider-wrap">
-                        <div class="slide">
+                        <div class="slide" *ngFor="let item of listAboutPeople">
                             <div class="testi-image">
                                 <a href="#">
-                                    <img src="../../../assets/images/testimonials/3.jpg" alt="Customer Testimonails">
+                                    <img src="{{ _s.baseURL + item.PictureURL }}" alt="{{ item.Description }}">
                                 </a>
                             </div>
                             <div class="testi-content">
-                                <p>Green Lotus rất tự hào được nhiều Chuyên gia, Khách hàng có uy tín đánh giá cao. Các nhận xét và thư khen của Khách hàng đã sử dụng sản phẩm Green Lotus </p>
+                                <p>{{ item.Description }}</p>
                                 <div class="testi-meta">
-                                    Steve Jobs
-                                    <span>Apple Inc.</span>
+                                    {{ item.RoleName }}
+                                    <!-- <span>Apple Inc.</span> -->
                                 </div>
                             </div>
                         </div>
-                        <div class="slide">
-                            <div class="testi-image">
-                                <a href="#">
-                                    <img src="../../../assets/images/testimonials/2.jpg" alt="Customer Testimonails">
-                                </a>
-                            </div>
-                            <div class="testi-content">
-                                <p>Chúng tôi rất hài lòng về Green Lotus khi được làm đối tác.</p>
-                                <div class="testi-meta">
-                                    Collis Ta'eed
-                                    <span>Envato Inc.</span>
+                        <!-- <div class="slide">
+                                <div class="testi-image">
+                                    <a href="#">
+                                        <img src="../../../assets/images/testimonials/2.jpg" alt="Customer Testimonails">
+                                    </a>
+                                </div>
+                                <div class="testi-content">
+                                    <p>Chúng tôi rất hài lòng về Green Lotus khi được làm đối tác.</p>
+                                    <div class="testi-meta">
+                                        Collis Ta'eed
+                                        <span>Envato Inc.</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="slide">
-                            <div class="testi-image">
-                                <a href="#">
-                                    <img src="../../../assets/images/testimonials/1.jpg" alt="Customer Testimonails">
-                                </a>
-                            </div>
-                            <div class="testi-content">
-                                <p>Hợp tác và cùng phát triền</p>
-                                <div class="testi-meta">
-                                    John Doe
-                                    <span>XYZ Inc.</span>
+                            <div class="slide">
+                                <div class="testi-image">
+                                    <a href="#">
+                                        <img src="../../../assets/images/testimonials/1.jpg" alt="Customer Testimonails">
+                                    </a>
                                 </div>
-                            </div>
-                        </div>
+                                <div class="testi-content">
+                                    <p>Hợp tác và cùng phát triền</p>
+                                    <div class="testi-meta">
+                                        John Doe
+                                        <span>XYZ Inc.</span>
+                                    </div>
+                                </div>
+                            </div> -->
                     </div>
                 </div>
             </div>

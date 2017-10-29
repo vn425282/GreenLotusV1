@@ -337,7 +337,7 @@
                         </a>
                     </div>
                     <h3>Responsive Layout</h3>
-                    <p>Powerful Layout with Responsive functionality that can be adapted to any screen size.</p>
+                    <p>Layout tự động co giãn phù hợp với các kích thướt màn hình</p>
                 </div>
             </div>
 
@@ -391,18 +391,18 @@
                 </div>
             </div>
 
-            <div class="col_one_third col_last">
+             <div class="col_one_third col_last">
                 <div class="feature-box fbox-small fbox-plain" data-animate="fadeIn" data-delay="1000">
                     <div class="fbox-icon">
                         <a href="#">
                             <i class="icon-line-circle-check"></i>
                         </a>
                     </div>
-                    <h3>Endless Possibilities</h3>
-                    <p>Complete control on each &amp; every element that provides endless customization possibilities.</p>
+                    <h3>Listen about Customer</h3>
+                    <p>GreenLostus luôn lắng nghe cải thiện dịch vụ với các khách hàng của mình</p>
                 </div>
             </div>
-
+<!--
             <div class="clear"></div>
 
             <div class="col_one_third bottommargin-sm">
@@ -439,7 +439,7 @@
                     <h3>Extensive Documentation</h3>
                     <p>We have covered each &amp; everything in our Documentation including Videos &amp; Screenshots.</p>
                 </div>
-            </div>
+            </div> -->
 
             <div class="clear"></div>
 
@@ -678,7 +678,7 @@
 
         </div>
 
-        <div class="section parallax dark nobottommargin" style="background-image: url('../../../assets/images/services/home-testi-bg.jpg'); padding: 100px 0;"
+        <div class="section parallax dark nobottommargin" style="background-image: url('../../../assets/images/services/sapa.jpg'); padding: 100px 0;"
             data-stellar-background-ratio="0.4">
 
             <div class="heading-block center">
@@ -688,22 +688,21 @@
             <div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
                 <div class="flexslider">
                     <div class="slider-wrap">
-                        <div class="slide">
+                        <div class="slide" *ngFor="let item of listAboutPeople">
                             <div class="testi-image">
                                 <a href="#">
-                                    <img src="../../../assets/images/testimonials/3.jpg" alt="Customer Testimonails">
+                                    <img src="{{ _s.baseURL + item.PictureURL }}" alt="{{ item.Description }}">
                                 </a>
                             </div>
                             <div class="testi-content">
-                                <p>Green Lotus rất tự hào được nhiều Chuyên gia, Khách hàng có uy tín đánh giá cao. Các nhận
-                                    xét và thư khen của Khách hàng đã sử dụng sản phẩm Green Lotus </p>
+                                <p>{{ item.Description }}</p>
                                 <div class="testi-meta">
-                                    Steve Jobs
-                                    <span>Apple Inc.</span>
+                                    {{ item.RoleName }}
+                                    <!-- <span>Apple Inc.</span> -->
                                 </div>
                             </div>
                         </div>
-                        <div class="slide">
+                        <!-- <div class="slide">
                             <div class="testi-image">
                                 <a href="#">
                                     <img src="../../../assets/images/testimonials/2.jpg" alt="Customer Testimonails">
@@ -730,7 +729,7 @@
                                     <span>XYZ Inc.</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -749,31 +748,30 @@
         <div class="container clear-bottommargin clearfix">
             <div class="row">
 
-                <div class="col-md-3 col-sm-6 bottommargin">
+                <div class="col-md-3 col-sm-6 bottommargin" *ngFor="let item of listNews">
                     <div class="ipost clearfix">
                         <div class="entry-image">
                             <a href="#">
-                                <img class="image_fade" src="../../../assets/images/magazine/thumb/1.jpg" alt="Image">
+                                <img class="image_fade" src="{{ _s.baseURL + item.ImageTitle }}" alt="Image">
                             </a>
                         </div>
                         <div class="entry-title">
                             <h3>
-                                <a href="blog-single.html">Tiêu đề, Tiêu đề. Tiêu đề</a>
+                                <a href="blog-single.html">{{ item.Title }}</a>
                             </h3>
                         </div>
                         <ul class="entry-meta clearfix">
                             <li>
-                                <i class="icon-calendar3"></i> 10/10/2017</li>
+                                <i class="icon-calendar3"></i>{{ item.DateCreate.substring(0, 10) }}</li>
                             <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
                         </ul>
                         <div class="entry-content">
-                            <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
-                                tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
+                            <p>{{ item.Desciption }}</p>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-3 col-sm-6 bottommargin">
+                <!-- <div class="col-md-3 col-sm-6 bottommargin">
                     <div class="ipost clearfix">
                         <div class="entry-image">
                             <a href="#">
@@ -789,15 +787,15 @@
                             <li>
                                 <i class="icon-calendar3"></i> 10/10/2017</li>
                             <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
-                        </ul>
+                        <!-- </ul>
                         <div class="entry-content">
                             <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
                                 tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-md-3 col-sm-6 bottommargin">
+                <!-- <div class="col-md-3 col-sm-6 bottommargin">
                     <div class="ipost clearfix">
                         <div class="entry-image">
                             <a href="#">
@@ -811,17 +809,17 @@
                         </div>
                         <ul class="entry-meta clearfix">
                             <li>
-                                <i class="icon-calendar3"></i> 10/10/2017</li>
+                                <i class="icon-calendar3"></i> 10/10/2017</li> -->
                             <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
-                        </ul>
+                        <!-- </ul>
                         <div class="entry-content">
                             <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
                                 tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
-                <div class="col-md-3 col-sm-6 bottommargin">
+                <!-- <div class="col-md-3 col-sm-6 bottommargin">
                     <div class="ipost clearfix">
                         <div class="entry-image">
                             <a href="#">
@@ -835,86 +833,36 @@
                         </div>
                         <ul class="entry-meta clearfix">
                             <li>
-                                <i class="icon-calendar3"></i> 10/10/2017</li>
+                                <i class="icon-calendar3"></i> 10/10/2017</li> -->
                             <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
-                        </ul>
+                        <!-- </ul>
                         <div class="entry-content">
                             <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
                                 tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
         </div>
 
         <div class="section">
-
         </div>
 
         <div class="container clearfix">
             <div class="heading-block center">
-                <h3>Đối tác thân thiết</h3>
+                <h3> Khách hàng thân thiết</h3>
+                <div></div>
             </div>
-
 
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget" data-margin="60" data-loop="true" data-nav="false"
                 data-autoplay="5000" data-pagi="false" data-items-xxs="2" data-items-xs="3" data-items-sm="4" data-items-md="5"
                 data-items-lg="6">
-
-                <div class="oc-item">
-                    <a href="#">
-                        <img src="../../../assets/images/clients/1.png" alt="Clients">
+                <div class="oc-item" *ngFor="let item of listPartner">
+                    <a href="{{ item.URLReferences }}">
+                        <img src="{{ _s.baseURL + item.PictureURL }}" alt="{{ item.Description }}">
                     </a>
                 </div>
-                <div class="oc-item">
-                    <a href="#">
-                        <img src="../../../assets/images/clients/2.png" alt="Clients">
-                    </a>
-                </div>
-                <div class="oc-item">
-                    <a href="#">
-                        <img src="../../../assets/images/clients/3.png" alt="Clients">
-                    </a>
-                </div>
-                <div class="oc-item">
-                    <a href="#">
-                        <img src="../../../assets/images/clients/4.png" alt="Clients">
-                    </a>
-                </div>
-                <div class="oc-item">
-                    <a href="#">
-                        <img src="../../../assets/images/clients/5.png" alt="Clients">
-                    </a>
-                </div>
-                <div class="oc-item">
-                    <a href="#">
-                        <img src="../../../assets/images/clients/6.png" alt="Clients">
-                    </a>
-                </div>
-                <div class="oc-item">
-                    <a href="#">
-                        <img src="../../../assets/images/clients/7.png" alt="Clients">
-                    </a>
-                </div>
-                <div class="oc-item">
-                    <a href="#">
-                        <img src="../../../assets/images/clients/8.png" alt="Clients">
-                    </a>
-                </div>
-                <div class="oc-item">
-                    <a href="#">
-                        <img src="../../../assets/images/clients/9.png" alt="Clients">
-                    </a>
-                </div>
-                <div class="oc-item">
-                    <a href="#">
-                        <img src="../../../assets/images/clients/10.png" alt="Clients">
-                    </a>
-                </div>
-
             </div>
-
-
         </div>
     </div>
 </section>

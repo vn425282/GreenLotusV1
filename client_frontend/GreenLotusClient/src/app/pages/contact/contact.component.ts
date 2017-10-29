@@ -41,19 +41,19 @@ export class ContactComponent implements OnInit {
 			address: 'Ho Chi Minh, Vietnam',
 			maptype: 'TERRAIN',
       zoom: 16,
-      latitude: 10.456051,
-      longitude: 105.638455,
+      latitude: 10.7717431,
+      longitude: 106.7035884,
 			markers: [
 				{
 					address: "Ho Chi Minh, Vietnam",
-					html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Hi, we\'re <span>Green Lotus</span></h4><p class="nobottommargin">Our mission is to help people to <strong>earn</strong> and to <strong>learn</strong> online. We operate <strong>marketplaces</strong> where hundreds of thousands of people buy and sell digital goods every day, and a network of educational blogs where millions learn <strong>creative skills</strong>.</p></div>',
+					html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Xin chào, chúng tôi là <span style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ GREEN LOTUS</span></h4><p class="nobottommargin">Địa chỉ <strong>LẦU 36, TÒA NHÀ BITEXCO , 2 HẢI TRIỀU , P.BẾN NGHÉ, QUẬN I, TP.HCM</strong></p></div>',
 					icon: {
 						image: "../../../assets/images/icons/map-icon-red.png",
 						iconsize: [32, 39],
             iconanchor: [32,39],
 					},
-          latitude: 10.456051,
-          longitude: 105.638455
+          latitude: 10.7717431,
+          longitude: 106.7035884
 				}
 			],
 			doubleclickzoom: false,

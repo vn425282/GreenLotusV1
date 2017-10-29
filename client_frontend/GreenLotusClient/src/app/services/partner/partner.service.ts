@@ -26,39 +26,4 @@ export class PartnerService {
             .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
 
     }
-
-    addPartner(p: Partner): Observable<any> {
-        const url = 'api/partner/addPartner';
-        const body = { PictureURL: p.pictureURL, URLReferences: p.urlReferences, Description: p.description,
-                       Lang: p.lang };
-        console.log(body);
-        return this.http.post(this.shared.baseURL + url, body, this.shared.options)
-            // ...and calling .json() on the response to return data
-            .map((res: Response) => res.json())
-            // ...errors if any
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-    }
-
-    updatePartner(p: Partner): Observable<any> {
-        const url = 'api/partner/updatePartner';
-        const body = { ID_AboutPartner: p.idAboutPartner, PictureURL: p.pictureURL, URLReferences: p.urlReferences,
-                       Description: p.description, Lang: p.lang };
-        console.log(body);
-        return this.http.post(this.shared.baseURL + url, body, this.shared.options)
-            // ...and calling .json() on the response to return data
-            .map((res: Response) => res.json())
-            // ...errors if any
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-    }
-
-    deletePartner(id): Observable<any> {
-        const url = 'api/partner/deletePartner';
-        const body = { ID_AboutPartner: id };
-        console.log(body);
-        return this.http.post(this.shared.baseURL + url, body, this.shared.options)
-            // ...and calling .json() on the response to return data
-            .map((res: Response) => res.json())
-            // ...errors if any
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
-    }
 }
