@@ -257,5 +257,23 @@ namespace GreenLotusAPI.Controllers
             var status = db.deleteBlog(b.ID_Blog);
             return Ok(new { results = status });
         }
+
+        private void sendEmailViaWebApi()
+        {
+            string subject = "Email Subject";
+            string body = "Email body";
+            string FromMail = "shahid@reckonbits.com.pk";
+            string emailTo = "reciever@reckonbits.com.pk";
+            MailMessage mail = new MailMessage();
+            SmtpClient SmtpServer = new SmtpClient("mail.reckonbits.com.pk");
+            mail.From = new MailAddress(FromMail);
+            mail.To.Add(emailTo);
+            mail.Subject = subject;
+            mail.Body = body;
+            SmtpServer.Port = 25;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("shahid@reckonbits.com.pk", "your password");
+            SmtpServer.EnableSsl = false;
+            SmtpServer.Send(mail);
+        }
     }
 }

@@ -15,6 +15,12 @@ declare var google: any;
 export class ContactComponent implements OnInit {
   color = '#00f';
   @ViewChild('myScript') myScript: ElementRef;
+  @ViewChild('name') name: ElementRef;
+  @ViewChild('email') email: ElementRef;
+  @ViewChild('phonenumber') phonenumber: ElementRef;
+  @ViewChild('title') title: ElementRef;
+  @ViewChild('description') description: ElementRef;
+
   constructor( @Inject(DOCUMENT) public document, public router: Router) {
     // if(!localStorage.getItem('login')){
     //   this.router.navigate(['/login']);
@@ -38,33 +44,45 @@ export class ContactComponent implements OnInit {
     this.myScript.nativeElement.appendChild(g);
 
     $('#google-map').gMap({
-			address: 'Ho Chi Minh, Vietnam',
-			maptype: 'TERRAIN',
+      address: 'Ho Chi Minh, Vietnam',
+      maptype: 'TERRAIN',
       zoom: 16,
       latitude: 10.7717431,
       longitude: 106.7035884,
-			markers: [
-				{
-					address: "Ho Chi Minh, Vietnam",
-					html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Xin chào, chúng tôi là <span style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ GREEN LOTUS</span></h4><p class="nobottommargin">Địa chỉ <strong>LẦU 36, TÒA NHÀ BITEXCO , 2 HẢI TRIỀU , P.BẾN NGHÉ, QUẬN I, TP.HCM</strong></p></div>',
-					icon: {
-						image: "../../../assets/images/icons/map-icon-red.png",
-						iconsize: [32, 39],
-            iconanchor: [32,39],
-					},
+      markers: [
+        {
+          address: "Ho Chi Minh, Vietnam",
+          html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Xin chào, chúng tôi là <span style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ GREEN LOTUS</span></h4><p class="nobottommargin">Địa chỉ <strong>LẦU 36, TÒA NHÀ BITEXCO , 2 HẢI TRIỀU , P.BẾN NGHÉ, QUẬN I, TP.HCM</strong></p></div>',
+          icon: {
+            image: "../../../assets/images/icons/map-icon-red.png",
+            iconsize: [32, 39],
+            iconanchor: [32, 39],
+          },
           latitude: 10.7717431,
           longitude: 106.7035884
-				}
-			],
-			doubleclickzoom: false,
-			controls: {
-				panControl: true,
-				zoomControl: true,
-				mapTypeControl: true,
-				scaleControl: false,
-				streetViewControl: false,
-				overviewMapControl: false
-			}
-		});
+        }
+      ],
+      doubleclickzoom: false,
+      controls: {
+        panControl: true,
+        zoomControl: true,
+        mapTypeControl: true,
+        scaleControl: false,
+        streetViewControl: false,
+        overviewMapControl: false
+      }
+    });
+  }
+
+  sendEmail() {
+    const name = this.name.nativeElement.value;
+    const email = this.email.nativeElement.value;
+    const phoneNumber = this.phonenumber.nativeElement.value;
+    const title = this.title.nativeElement.value;
+    const description = this.description.nativeElement.value;
+
+    if ( name !== '' && email !== '' && phoneNumber !== '' && title !== '' && description != '') {
+      
+    }
   }
 }
