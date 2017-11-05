@@ -47,17 +47,17 @@ export class AboutUsComponent implements OnInit {
 
                 if(item.Description.length > 100)
                 {
-                    item.Description = '<a href="/pages/admin/update-aboutus/' + item.ID_AboutUs + '">Xem chi tiết</a>'
+                    item.Description = '<a href="./pages/admin/update-aboutus/' + item.ID_AboutUs + '">Xem chi tiết</a>'
                 }
 
                 if(item.WhyChoose.length > 100)
                 {
-                    item.WhyChoose = '<a href="/pages/admin/update-aboutus/' + item.ID_AboutUs + '">Xem chi tiết</a>'
+                    item.WhyChoose = '<a href="./pages/admin/update-aboutus/' + item.ID_AboutUs + '">Xem chi tiết</a>'
                 }
 
                 if(item.OurMission.length > 100)
                 {
-                    item.OurMission = '<a href="/pages/admin/update-aboutus/' + item.ID_AboutUs + '">Xem chi tiết</a>'
+                    item.OurMission = '<a href="./pages/admin/update-aboutus/' + item.ID_AboutUs + '">Xem chi tiết</a>'
                 }
 
                 this.tableData1.dataRows.push([
