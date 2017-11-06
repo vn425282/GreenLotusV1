@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
         public router: Router) {
         if (localStorage.getItem('login')) {
             this.router.navigate(['pages/admin/list-user']);
+        }else{
+            this.router.navigate(['pages/admin/login']);
         }
     }
 
