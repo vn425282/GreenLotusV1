@@ -2,6 +2,8 @@ import { Component, ViewChild, ElementRef, Inject, OnInit } from '@angular/core'
 import { RouterModule, Router } from '@angular/router';
 import * as spinner from 'ng2-component-spinner';
 import { DOCUMENT } from '@angular/common';
+import { BlogService } from 'app/services/blog/blog.service';
+import { SharedService } from 'app/services/shared/shared.service';
 
 declare var $: any;
 
@@ -14,7 +16,10 @@ declare var $: any;
 export class BlogDetailComponent implements OnInit {
   color = '#00f';
   @ViewChild('myScript') myScript: ElementRef;
-  constructor(@Inject(DOCUMENT) public document, public router: Router) {
+  constructor( @Inject(DOCUMENT) public document,
+    public router: Router,
+    public blogService: BlogService,
+    public _s: SharedService) {
 
   }
 

@@ -12,7 +12,7 @@ export const routes: Routes = [
             { path: 'aboutus', loadChildren: './aboutus/aboutus.module#AboutUsModule' },
             { path: 'contact', loadChildren: './contact/contact.module#ContactModule' },
             { path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
-            { path: 'blog-detail', loadChildren: './blog-detail/blog-detail.module#BlogDetailModule' },
+            { path: 'blog-detail/:id', loadChildren: './blog-detail/blog-detail.module#BlogDetailModule' },
         ]
     }
 ]

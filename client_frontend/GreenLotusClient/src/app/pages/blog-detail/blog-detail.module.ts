@@ -11,6 +11,8 @@ import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { BlogDetailComponent } from './blog-detail.component';
 import { routing } from './blog-detail.roating';
 import { HeaderComponent } from 'app/shared/header/header.component';
+import { SharedService } from 'app/services/shared/shared.service';
+import { BlogService } from 'app/services/blog/blog.service';
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import { HeaderComponent } from 'app/shared/header/header.component';
     routing
   ],
   providers: [
+    BlogService,
+    SharedService
   ],
   bootstrap: [BlogDetailComponent]
 })
