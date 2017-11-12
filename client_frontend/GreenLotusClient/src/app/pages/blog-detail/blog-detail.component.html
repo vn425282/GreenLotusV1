@@ -100,25 +100,25 @@
                         <h4>Bài viết mới</h4>
                         <div id="post-list-footer">
 
-                            <div class="spost clearfix">
+                            <div class="spost clearfix" *ngFor="let item of arrayListNewBog">
                                 <div class="entry-image">
-                                    <a href="#" class="nobg">
-                                        <img src="../../../assets/images/magazine/small/1.jpg" alt="">
+                                    <a href='/pages/blog-detail/{{ item.ID_Blog }}' class="nobg">
+                                        <img src="{{ _s.baseURL + item.ImageTitle }}" alt="">
                                     </a>
                                 </div>
                                 <div class="entry-c">
                                     <div class="entry-title">
                                         <h4>
-                                            <a href="#">Lorem ipsum dolor sit amet, consectetur</a>
+                                            <a href='/pages/blog-detail/{{ item.ID_Blog }}'>{{ item.Title }}</a>
                                         </h4>
                                     </div>
                                     <ul class="entry-meta">
-                                        <li>10th July 2017</li>
+                                        <li>{{ item.DateCreate.replace('T', ' ') }}</li>
                                     </ul>
                                 </div>
                             </div>
 
-                            <div class="spost clearfix">
+                            <!-- <div class="spost clearfix">
                                 <div class="entry-image">
                                     <a href="#" class="nobg">
                                         <img src="../../../assets/images/magazine/small/2.jpg" alt="">
@@ -152,7 +152,7 @@
                                         <li>10th July 2017</li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -165,8 +165,18 @@
                 <!-- Portfolio Single Video
                                             ============================================= -->
                 <div class="col_full portfolio-single-image">
-                    <iframe src="http://player.vimeo.com/video/80975867" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen
-                        allowfullscreen></iframe>
+                    <!-- <a *ngIf="!item.VideoPath" href="{{ _s.baseURL + item.ImageTitle }}" class="left-icon" data-lightbox="image">
+                                <i class="icon-line-plus"></i>
+                            </a>
+                            <a *ngIf="item.VideoPath" href="" class="left-icon" data-lightbox="iframe">
+                                <i class="icon-line-play"></i>
+                            </a> -->
+                    <video *ngIf="selectedNews?.VideoPath" width="400" controls autoplay>
+                        <source src="{{ _s.baseURL + selectedNews?.VideoPath }}" type="video/mp4"> Your browser does not support HTML5 video.
+                    </video>
+                    <img *ngIf="!selectedNews?.VideoPath" src="{{ _s.baseURL + selectedNews?.ImageTitle }}" alt="{{ selectedNews?.Title }}" style="max-width:700px;">
+                    <!-- <iframe  src="{" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen
+                        allowfullscreen></iframe> -->
                 </div>
                 <!-- .portfolio-single-image end -->
 
@@ -177,14 +187,10 @@
                     <!-- Portfolio Single - Description
                                                 ============================================= -->
                     <div class="fancy-title title-dotted-border">
-                        <h2>Project Info:</h2>
+                        <h2>{{ selectedNews?.Title }}</h2>
                     </div>
 
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam, veniam commodi est possimus obcaecati
-                        similique labore quo nostrum esse nulla.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda, ea, laboriosam, animi, ex vero harum
-                        ipsa ducimus dolorum consequuntur fugiat excepturi sunt perferendis reprehenderit veniam ullam necessitatibus
-                        dolor dicta culpa.</p>
+                    <p [innerHTML]="selectedNews?.Description"></p>
                     <!-- Portfolio Single - Description End -->
 
                 </div>
@@ -202,10 +208,10 @@
                                 <i class="icon-user"></i>Created by:</span> John Doe</li> -->
                         <li>
                             <span>
-                                <i class="icon-calendar3"></i>Đăng ngày:</span> 17th March 2014</li>
+                                <i class="icon-calendar3"></i>Đăng ngày:</span>{{ selectedNews?.DateCreate.replace('T', ' ') }}</li>
                         <li>
                             <span>
-                                <i class="icon-lightbulb"></i>Thuộc mục:</span> Tin tức mới</li>
+                                <i class="icon-lightbulb"></i>Thuộc mục:</span>{{ selectedNews?.Tag }}</li>
                         <!-- <li>
                             <span>
                                 <i class="icon-link"></i>Client:</span>
@@ -217,7 +223,7 @@
                     <!-- Portfolio Single - Share
                                                 ============================================= -->
                     <div class="si-share clearfix">
-          
+
                     </div>
                     <!-- Portfolio Single - Share End -->
 
@@ -227,7 +233,7 @@
 
                 <!-- Related Portfolio Items
                                             ============================================= -->
-                <h4>Bải viết liên quan:</h4>
+                <!-- <h4>Bải viết liên quan:</h4>
 
                 <div id="related-portfolio" class="owl-carousel portfolio-carousel portfolio-3 carousel-widget" data-margin="20" data-nav="false"
                     data-autoplay="5000" data-items-xxs="1" data-items-xs="2" data-items-sm="3" data-items-md="2" data-items-lg="3">
@@ -339,7 +345,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> -->
                 <!-- .portfolio-carousel end -->
 
             </div>

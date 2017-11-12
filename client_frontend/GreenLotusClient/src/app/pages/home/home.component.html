@@ -175,7 +175,7 @@
                 <div class="col-lg-5">
                     <div class="heading-block topmargin">
                         <h1>
-                            <a [routerLink]="['/pages/aboutus']">Đôi nét về Green Lotus</a>
+                            <a href='/pages/aboutus'>Đôi nét về Green Lotus</a>
                         </h1>
                     </div>
                     <p class="lead">Green Lotus là công ty tiên phong trong các hoạt động thương mại bền vững nhằm định hướng thị trường
@@ -183,7 +183,7 @@
                         Lotus trải dài hoạt động trên các ngành Nông nghiệp, Giáo dục, Y tế, Ngoại thương, Năng lượng, Công
                         nghệ cao và vận hành đa dạng các hoạt động tư vấn, đầu tư, thương mại, truyền thông và sự kiện ...
                         <br>
-                        <a [routerLink]="['/pages/aboutus']">Xem thêm về chúng tôi</a>
+                        <a href='/pages/aboutus'>xem thêm về chúng tôi</a>
                     </p>
                 </div>
 
@@ -455,32 +455,35 @@
 
         <div id="portfolio" class="portfolio portfolio-nomargin grid-container portfolio-notitle portfolio-full grid-container clearfix">
 
-            <article class="portfolio-item pf-media pf-icons">
+            <article class="portfolio-item pf-media pf-icons" *ngFor="let item of listProject">
                 <div class="portfolio-image">
-                    <a href='/pages/blog-detail'>
-                        <img src="../../../assets/images/portfolio/4/1.jpg" alt="Open Imagination">
+                    <a href='/pages/blog-detail/{{ item.ID_Blog }}'>
+                        <img src="{{ _s.baseURL + item.ImageTitle }}" alt="imagination" style="width: 361px; height: 270.75px">
                     </a>
                     <div class="portfolio-overlay">
-                        <a href="../../../assets/images/portfolio/full/1.jpg" class="left-icon" data-lightbox="image">
+                        <a *ngIf="!item.VideoPath" href="{{ _s.baseURL + item.ImageTitle }}" class="left-icon" data-lightbox="image">
                             <i class="icon-line-plus"></i>
                         </a>
-                        <a href='/pages/blog-detail' class="right-icon">
+                        <a *ngIf="item.VideoPath" href="{{ _s.baseURL + item.VideoPath }}" class="left-icon" data-lightbox="iframe">
+                            <i class="icon-line-play"></i>
+                        </a>
+                        <a href='/pages/blog-detail/{{ item.ID_Blog }}' class="right-icon">
                             <i class="icon-line-ellipsis"></i>
                         </a>
                     </div>
                 </div>
                 <div class="portfolio-desc">
                     <h3>
-                        <a href='/pages/blog-detail'>Open Imagination</a>
+                        <a href='/pages/blog-detail/{{ item.ID_Blog }}'>{{ item.Title }}</a>
                     </h3>
-                    <span>
+                    <!-- <span>
                         <a href="#">Media</a>,
                         <a href="#">Icons</a>
-                    </span>
+                    </span> -->
                 </div>
             </article>
 
-            <article class="portfolio-item pf-illustrations">
+            <!-- <article class="portfolio-item pf-illustrations">
                 <div class="portfolio-image">
                     <a href="../../../assets/portfolio-single.html">
                         <img src="../../../assets/images/portfolio/4/2.jpg" alt="Locked Steel Gate">
@@ -502,9 +505,9 @@
                         <a href="#">Illustrations</a>
                     </span>
                 </div>
-            </article>
+            </article> -->
 
-            <article class="portfolio-item pf-graphics pf-uielements">
+            <!-- <article class="portfolio-item pf-graphics pf-uielements">
                 <div class="portfolio-image">
                     <a href="#">
                         <img src="../../../assets/images/portfolio/4/3.jpg" alt="Mac Sunglasses">
@@ -527,9 +530,9 @@
                         <a href="#">UI Elements</a>
                     </span>
                 </div>
-            </article>
+            </article> -->
 
-            <article class="portfolio-item pf-icons pf-illustrations">
+            <!-- <article class="portfolio-item pf-icons pf-illustrations">
                 <div class="portfolio-image">
                     <a href="portfolio-single.html">
                         <img src="../../../assets/images/portfolio/4/4.jpg" alt="Open Imagination">
@@ -656,14 +659,14 @@
                         <a href="#">Graphics</a>
                     </span>
                 </div>
-            </article>
+            </article> -->
 
         </div>
         <div class="clear"></div>
         <div class="container clearfix">
 
             <div class="col_one_third bottommargin-sm center">
-                <img data-animate="fadeInLeft" src="../../../assets/images/services/iphone6.png" alt="Iphone">
+                <img data-animate="fadeInLeft" src="../../../assets/images/services/ipad.png" alt="Iphone">
             </div>
 
             <div class="col_two_third bottommargin-sm col_last">
@@ -751,13 +754,13 @@
                 <div class="col-md-3 col-sm-6 bottommargin" *ngFor="let item of listNews">
                     <div class="ipost clearfix">
                         <div class="entry-image">
-                            <a href="#">
-                                <img class="image_fade" src="{{ _s.baseURL + item.ImageTitle }}" alt="Image">
+                            <a href='/pages/blog-detail/{{ item.ID_Blog }}'>
+                                <img class="image_fade" src="{{ _s.baseURL + item.ImageTitle }}" alt="Image" style="width: 262.5px; height: 172.44px">
                             </a>
                         </div>
                         <div class="entry-title">
                             <h3>
-                                <a href="blog-single.html">{{ item.Title }}</a>
+                                <a href='/pages/blog-detail/{{ item.ID_Blog }}' >{{ item.Title }}</a>
                             </h3>
                         </div>
                         <ul class="entry-meta clearfix">
@@ -858,8 +861,8 @@
                 data-autoplay="5000" data-pagi="false" data-items-xxs="2" data-items-xs="3" data-items-sm="4" data-items-md="5"
                 data-items-lg="6">
                 <div class="oc-item" *ngFor="let item of listPartner">
-                    <a href="{{ item.URLReferences }}">
-                        <img src="{{ _s.baseURL + item.PictureURL }}" alt="{{ item.Description }}">
+                    <a href="{{ item?.URLReferences }}">
+                        <img src="{{ _s.baseURL + item?.PictureURL }}" alt="{{ item?.Description }}">
                     </a>
                 </div>
             </div>

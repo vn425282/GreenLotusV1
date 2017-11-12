@@ -28,15 +28,15 @@ export class ContactComponent implements OnInit {
   }
 
   ngOnInit() {
-    let s = this.document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "../../assets/js/plugins.js";
-    this.myScript.nativeElement.appendChild(s);
+    // let s = this.document.createElement("script");
+    // s.type = "text/javascript";
+    // s.src = "https://maps.google.com/maps/api/js?key=AIzaSyDMxJ92oBkSnVNHFX3R8XhtYQPEgk1_IiI";
+    // this.myScript.nativeElement.appendChild(s);
 
-    let a = this.document.createElement("script");
-    a.type = "text/javascript";
-    a.src = "../../assets/js/functions.js";
-    this.myScript.nativeElement.appendChild(a);
+    // let a = this.document.createElement("script");
+    // a.type = "text/javascript";
+    // a.src = "../../assets/js/functions.js";
+    // this.myScript.nativeElement.appendChild(a);
 
     let g = this.document.createElement("script");
     g.type = "text/javascript";
@@ -44,14 +44,14 @@ export class ContactComponent implements OnInit {
     this.myScript.nativeElement.appendChild(g);
 
     $('#google-map').gMap({
-      address: 'Ho Chi Minh, Vietnam',
+      address: 'LẦU 36, TÒA NHÀ BITEXCO , 2 HẢI TRIỀU , P.BẾN NGHÉ, QUẬN I, TP.HCM',
       maptype: 'TERRAIN',
       zoom: 16,
       latitude: 10.7717431,
       longitude: 106.7035884,
       markers: [
         {
-          address: "Ho Chi Minh, Vietnam",
+          address: "LẦU 36, TÒA NHÀ BITEXCO , 2 HẢI TRIỀU , P.BẾN NGHÉ, QUẬN I, TP.HCM",
           html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Xin chào, chúng tôi là <span style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ GREEN LOTUS</span></h4><p class="nobottommargin">Địa chỉ <strong>LẦU 36, TÒA NHÀ BITEXCO , 2 HẢI TRIỀU , P.BẾN NGHÉ, QUẬN I, TP.HCM</strong></p></div>',
           icon: {
             image: "../../../assets/images/icons/map-icon-red.png",

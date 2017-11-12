@@ -172,7 +172,6 @@ h6 {
 	font-weight: 600;
 	line-height: 1.5;
 	margin: 0 0 30px 0;
-	font-family: 'Raleway', sans-serif;
 }
 
 h5,
@@ -5501,7 +5500,7 @@ body:not(.device-touch) .entry-link {
 .mpost .entry-image a,
 .mpost .entry-image img,
 .mpost .entry-image i {
-	width: 170px;
+	width: 1px;
 	height: 128px;
 }
 
@@ -9689,7 +9688,7 @@ body:not(.device-touch) .clients-grid li a {
 
 .testi-content p {
 	margin-bottom: 0;
-	font-family: 'Crete Round', serif;
+	/* font-family: 'Crete Round', serif; */
 	font-style: italic;
 }
 

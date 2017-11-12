@@ -22,22 +22,18 @@ export class HomeComponent implements OnInit {
   public listPartner = [];
   public listAboutPeople = [];
   public listNews = [];
+  public listProject = [];
 
   ngOnInit(): void {
-    var s = this.document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "../../assets/js/plugins.js";
-    this.myScript.nativeElement.appendChild(s);
+    // var s = this.document.createElement("script");
+    // s.type = "text/javascript";
+    // s.src = "../../assets/js/plugins.js";
+    // this.myScript.nativeElement.appendChild(s);
 
-    var a = this.document.createElement("script");
-    a.type = "text/javascript";
-    a.src = "../../assets/js/functions.js";
-    this.myScript.nativeElement.appendChild(a);
-
-    // load data
-    this.loadPartner();
-    this.loadClientSaid();
-    this.loadBlogByNewsType();
+    // var a = this.document.createElement("script");
+    // a.type = "text/javascript";
+    // a.src = "../../assets/js/functions.js";
+    // this.myScript.nativeElement.appendChild(a);
   }
 
   constructor( @Inject(DOCUMENT) public document,
@@ -46,22 +42,36 @@ export class HomeComponent implements OnInit {
     public aboutPeopleService: AboutPeopleService,
     public blogService: BlogService,
     public _s: SharedService) {
+
+    // load data
+    this.loadPartner();
+    this.loadClientSaid();
+    this.loadBlogByNewsType();
   }
 
+  // load projects and blogs 
   loadBlogByNewsType() {
     this.blogService.getAllBlog().subscribe(dataBlog => {
       console.log('getAllBlog', dataBlog);
       if (dataBlog.results) {
+        let counter = 0;
         for (let item of dataBlog.results.reverse()) {
-          if (item.Tag == "Tin tức khác") {
-            if (this.listNews.length == 4) {
-              break;
-            } else {
-              this.listNews.push(item);
+          if (counter < 4) {
+            this.listNews.push(item);
+            counter++;
+          }
+          
+          if(item.Tag === 'Dự án'){
+            if(counter < 8){
+              if(item.Title.length > 65){
+                item.Title = item.Title.substring(0, 65) + ' ...';
+              }
+              this.listProject.push(item);
             }
           }
         }
         console.log('getAllBlog after get', this.listNews);
+        console.log('getAllProject after get', this.listProject);
       }
     });
   }

@@ -273,19 +273,19 @@
 
                     <div class="widget clearfix">
 
-                        <h4>viết mới</h4>
+                        <h4>Bài viết mới</h4>
                         <div id="post-list-footer">
 
                             <div class="spost clearfix" *ngFor="let item of arrayListNewBog">
                                 <div class="entry-image">
-                                    <a href="#" class="nobg">
+                                    <a href='/pages/blog-detail/{{ item.ID_Blog }}' class="nobg">
                                         <img src="{{ _s.baseURL + item.ImageTitle }}" alt="">
                                     </a>
                                 </div>
                                 <div class="entry-c">
                                     <div class="entry-title">
                                         <h4>
-                                            <a href="#">{{ item.Title }}</a>
+                                            <a href='/pages/blog-detail/{{ item.ID_Blog }}'>{{ item.Title }}</a>
                                         </h4>
                                     </div>
                                     <ul class="entry-meta">

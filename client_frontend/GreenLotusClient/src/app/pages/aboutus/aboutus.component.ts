@@ -31,15 +31,15 @@ export class AboutUsComponent implements OnInit {
   }
 
   ngOnInit() {
-    var s = this.document.createElement("script");
-    s.type = "text/javascript";
-    s.src = "../../assets/js/plugins.js";
-    this.myScript.nativeElement.appendChild(s);
+    // var s = this.document.createElement("script");
+    // s.type = "text/javascript";
+    // s.src = "../../assets/js/plugins.js";
+    // this.myScript.nativeElement.appendChild(s);
 
-    var a = this.document.createElement("script");
-    a.type = "text/javascript";
-    a.src = "../../assets/js/functions.js";
-    this.myScript.nativeElement.appendChild(a);
+    // var a = this.document.createElement("script");
+    // a.type = "text/javascript";
+    // a.src = "../../assets/js/functions.js";
+    // this.myScript.nativeElement.appendChild(a);
 
     this.aboutPeopleService.getAboutPeople().subscribe(data => {
       console.log("getAboutPeople", data);
