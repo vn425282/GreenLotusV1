@@ -60,8 +60,8 @@ export class UpdatePartnerComponent implements OnInit {
       this.flagSpinner = true;
       let textBase64: string;
       const file: File = inputValue.files[0];
-      const fileExtend = file.name.split('.').pop();
-      if (fileExtend === 'jpg' || fileExtend === 'png' || fileExtend === 'gif') {
+      const fileExtend = file.name.split('.').pop().toUpperCase();
+      if (fileExtend === 'JPG' || fileExtend === 'PNG' || fileExtend === 'GIF') {
         const myReader: FileReader = new FileReader();
 
         myReader.onloadend = ((e) => {

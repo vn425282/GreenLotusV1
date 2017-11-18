@@ -42,7 +42,7 @@
                                     <p>
                                         <b>Xem trước</b>
                                     </p>
-                                    <img [src]="srcPreview">
+                                    <img [src]="srcPreview" width="600">
                                 </div>
                             </div>
                         </div>
@@ -61,9 +61,10 @@
                                 <div class="form-group">
                                     <label>Tag/Category cho bài viết</label>
                                     <select class="form-control border-input" #tag>
-                                        <option value="Sự kiện">Dự án</option>
-                                        <option value="Sự kiện">Đối tác</option>
-                                        <option value="Tin tức khác">Tin tức khác</option>
+                                        <option value="Dự án" [selected]="'Dự án' == mytag">Dự án</option>
+                                        <option value="Đối tác" [selected]="'Đối tác' == mytag">Đối tác</option>
+                                        <option value="Sự kiện" [selected]="'Sự kiện' == mytag">Sự kiện</option>
+                                        <option value="Tin tức khác" [selected]="'Tin tức khác' == mytag">Tin tức khác</option>
                                     </select>
                                 </div>
                             </div>

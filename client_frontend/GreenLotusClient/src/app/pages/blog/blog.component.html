@@ -103,6 +103,9 @@
                         <a href="#" data-filter=".pf-icons">Tin tức</a>
                     </li>
                     <li>
+                        <a href="#" data-filter=".pf-icons-2">Sự kiện</a>
+                    </li>
+                    <li>
                         <a href="#" data-filter=".pf-illustrations">Dự án</a>
                     </li>
                     <li>
@@ -121,7 +124,7 @@
                                                     ============================================= -->
                 <div id="portfolio" class="portfolio grid-container portfolio-3 clearfix">
 
-                    <article class="portfolio-item pf-media" [ngClass]="{'pf-icons': item.Tag == 'Tin tức', 'pf-illustrations': item.Tag == 'Dự án', 'pf-uielements': item.Tag == 'Đối tác'}" 
+                    <article class="portfolio-item pf-media" [ngClass]="{'pf-icons': item.Tag == 'Tin tức', 'pf-icons-2': item.Tag == 'Sự kiện', 'pf-illustrations': item.Tag == 'Dự án', 'pf-uielements': item.Tag == 'Đối tác'}"
                         *ngFor="let item of arrayListAllBlog">
                         <div class="portfolio-image">
                             <a href="portfolio-single.html">
@@ -138,7 +141,7 @@
                         </div>
                         <div class="portfolio-desc">
                             <h3>
-                                <a href='/pages/blog-detail/{{ item.ID_Blog }}'  >{{ item.Title }}</a>
+                                <a href='/pages/blog-detail/{{ item.ID_Blog }}'>{{ item.Title }}</a>
                             </h3>
                             <!-- <span>
                                 <a href="#">Media</a>

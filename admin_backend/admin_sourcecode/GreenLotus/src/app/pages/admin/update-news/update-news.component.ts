@@ -33,6 +33,7 @@ export class UpdateNewsComponents implements OnInit {
   public fileUploaded = '';
   public blogId;
   public myCurrentBlog: Blog;
+  public mytag = '';
 
   constructor(public _p: UploadService,
     public router: Router,
@@ -51,13 +52,16 @@ export class UpdateNewsComponents implements OnInit {
           if (this.myCurrentBlog) {
             this.flagSpinner = false;
             this.srcPreview = this._shared.getBaseURLWithoutFlash() + this.myCurrentBlog.ImageTitle;
-            this.fileUploaded = this._shared.baseURL + this.myCurrentBlog.VideoPath;
+            if (this.myCurrentBlog.VideoPath) {
+              this.fileUploaded = this._shared.baseURL + this.myCurrentBlog.VideoPath;
+            }
             this.shortPathURL = this.myCurrentBlog.ImageTitle;
             this.shortPathVideoURL = this.myCurrentBlog.VideoPath;
             this.title.nativeElement.value = this.myCurrentBlog.Title;
             this.editorDescription.writeValue(this.myCurrentBlog.Description);
             this.lang.nativeElement.value = this.myCurrentBlog.Lang;
             this.tag.nativeElement.value = this.myCurrentBlog.Tag;
+            this.mytag = this.myCurrentBlog.Tag;
           } else {
             this.router.navigate(['pages/admin/list-news']);
           }
@@ -120,7 +124,7 @@ export class UpdateNewsComponents implements OnInit {
         });
       } else {
         this.noticeModal.open();
-        this.noticeMessage = 'Vui lòng chọn file hình có đuôi .mp4';
+        this.noticeMessage = 'Vui lòng chọn file video có đuôi .mp4';
       }
     } catch (e) {
       this.noticeModal.open();
@@ -128,9 +132,41 @@ export class UpdateNewsComponents implements OnInit {
     }
   }
 
-  // imageChange($event) {
-  //   this.readThis($event.target, 'end');
-  // }
+  imageChange($event) {
+    this.readThis($event.target, 'end');
+  }
+
+  readThis(inputValue: any, state: any): void {
+    try {
+      this.flagSpinner = true;
+      let textBase64: string;
+      const file: File = inputValue.files[0];
+      const fileExtend = file.name.split('.').pop().toUpperCase();
+      if (fileExtend === 'JPG' || fileExtend === 'PNG' || fileExtend === 'GIF') {
+        const myReader: FileReader = new FileReader();
+
+        myReader.onloadend = ((e) => {
+          textBase64 = myReader.result;
+          this.myLogoBase64String = textBase64;
+          // this.srcPreview = textBase64;
+          this._shared.uploadBase64ImgToServer(textBase64, 'news', fileExtend).subscribe(data => {
+            this.srcPreview = this._shared.getBaseURLWithoutFlash() + data.results;
+            this.shortPathURL = data.results;
+            this.flagSpinner = false;
+            // this.srcPreview = data;
+          });
+        });
+        myReader.readAsDataURL(file);
+      } else {
+        this.noticeModal.open();
+        this.noticeMessage = 'Vui lòng chọn file hình có đuôi .jpg, .png, .gif';
+      }
+    } catch (e) {
+      console.log('error at: readThis() ----- add-news.component.ts', e);
+      this.myLogoBase64String = '';
+      this.srcPreview = '';
+    }
+  }
 
   back() {
     this.router.navigate(['pages/admin/list-news']);

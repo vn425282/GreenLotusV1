@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   public listAboutPeople = [];
   public listNews = [];
   public listProject = [];
+  public checkListPartner = false;
 
   ngOnInit(): void {
     // var s = this.document.createElement("script");
@@ -58,7 +59,6 @@ export class HomeComponent implements OnInit {
         for (let item of dataBlog.results.reverse()) {
           if (counter < 4) {
             this.listNews.push(item);
-            counter++;
           }
           
           if(item.Tag === 'Dự án'){
@@ -69,6 +69,7 @@ export class HomeComponent implements OnInit {
               this.listProject.push(item);
             }
           }
+          counter++;
         }
         console.log('getAllBlog after get', this.listNews);
         console.log('getAllProject after get', this.listProject);
@@ -93,9 +94,8 @@ export class HomeComponent implements OnInit {
   loadPartner() {
     this.partnerService.getPartner().subscribe(dataPartner => {
       console.log('getPartner', dataPartner);
-      if (dataPartner.results) {
         this.listPartner = dataPartner.results;
-      }
+        this.checkListPartner = true;
     });
   }
 }

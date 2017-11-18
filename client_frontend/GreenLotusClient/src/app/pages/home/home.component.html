@@ -172,7 +172,7 @@
         <div class="container clearfix">
             <div class="row clearfix">
 
-                <div class="col-lg-5">
+                <div class="col-lg-5" style="margin-top:-60px">
                     <div class="heading-block topmargin">
                         <h1>
                             <a href='/pages/aboutus'>Đôi nét về Green Lotus</a>
@@ -183,7 +183,9 @@
                         Lotus trải dài hoạt động trên các ngành Nông nghiệp, Giáo dục, Y tế, Ngoại thương, Năng lượng, Công
                         nghệ cao và vận hành đa dạng các hoạt động tư vấn, đầu tư, thương mại, truyền thông và sự kiện ...
                         <br>
-                        <a href='/pages/aboutus'>xem thêm về chúng tôi</a>
+                        <a href='/pages/aboutus'>
+                            <b>Xem thêm về chúng tôi</b>
+                        </a>
                     </p>
                 </div>
 
@@ -402,7 +404,7 @@
                     <p>GreenLostus luôn lắng nghe cải thiện dịch vụ với các khách hàng của mình</p>
                 </div>
             </div> -->
-<!--
+        <!--
             <div class="clear"></div>
 
             <div class="col_one_third bottommargin-sm">
@@ -441,24 +443,24 @@
                 </div>
             </div> -->
 
- <!--            <div class="clear"></div>
+        <!--            <div class="clear"></div>
 
         </div> -->
 
         <div class="section topmargin nobottommargin nobottomborder">
             <div class="container clearfix">
                 <div class="heading-block center nomargin">
-                    <h3>Các dự án của chúng tôi</h3>
+                    <h3 style="color:#1ABC9C !important">Các dự án của chúng tôi</h3>
                 </div>
             </div>
         </div>
 
-        <div id="portfolio" class="portfolio portfolio-nomargin grid-container portfolio-notitle portfolio-full grid-container clearfix">
+        <div id="portfolio" class="portfolio clearfix">
 
             <article class="portfolio-item pf-media pf-icons" *ngFor="let item of listProject">
                 <div class="portfolio-image">
                     <a href='/pages/blog-detail/{{ item.ID_Blog }}'>
-                        <img src="{{ _s.baseURL + item.ImageTitle }}" alt="imagination" style="width: 361px; height: 270.75px">
+                        <img src="{{ _s.baseURL + item.ImageTitle }}" alt="imagination">
                     </a>
                     <div class="portfolio-overlay">
                         <a *ngIf="!item.VideoPath" href="{{ _s.baseURL + item.ImageTitle }}" class="left-icon" data-lightbox="image">
@@ -662,30 +664,12 @@
             </article> -->
 
         </div>
-        <div class="clear"></div>
-        <div class="container clearfix">
 
-            <div class="col_one_third bottommargin-sm center">
-                <img data-animate="fadeInLeft" src="../../../assets/images/services/ipad.png" alt="Iphone">
-            </div>
-
-            <div class="col_two_third bottommargin-sm col_last">
-
-                <div class="heading-block topmargin-sm">
-                    <h3>Thiết lập hiệu ứng tốt nhất cho Mobile và Tablet</h3>
-                </div>
-
-                <p>Các bạn có thể duyệt website chúng tôi qua phone hoặc tablet 1 cách tốt nhất, hiển thị độ phân giải tốt nhất</p>
-
-            </div>
-
-        </div>
-
-        <div class="section parallax dark nobottommargin" style="background-image: url('../../../assets/images/services/sapa.jpg'); padding: 100px 0;"
+        <div class="section parallax dark nobottommargin" style="background-image: url('../../../assets/images/services/clientsaid2.jpg'); padding: 100px 0;height:500px"
             data-stellar-background-ratio="0.4">
 
             <div class="heading-block center">
-                <h3>Khách hàng nói gì về chúng tôi</h3>
+                <h3 style="color:#1ABC9C !important">Khách hàng nói gì về chúng tôi</h3>
             </div>
 
             <div class="fslider testimonial testimonial-full" data-animation="fade" data-arrows="false">
@@ -741,12 +725,10 @@
         <div class="section notopmargin notopborder">
             <div class="container clearfix">
                 <div class="heading-block center nomargin">
-                    <h3>Tin tức mới</h3>
+                    <h3 style="color:#1ABC9C !important">Tin tức mới</h3>
                 </div>
             </div>
         </div>
-
-
 
         <div class="container clear-bottommargin clearfix">
             <div class="row">
@@ -760,7 +742,8 @@
                         </div>
                         <div class="entry-title">
                             <h3>
-                                <a href='/pages/blog-detail/{{ item.ID_Blog }}' >{{ item.Title }}</a>
+                                <a href='/pages/blog-detail/{{ item.ID_Blog }}' *ngIf="item?.Title.length < 50">{{ item.Title }}</a>
+                                <a href='/pages/blog-detail/{{ item.ID_Blog }}' *ngIf="item?.Title.length > 50">{{ item.Title.substring(0, 50) }} ...</a>
                             </h3>
                         </div>
                         <ul class="entry-meta clearfix">
@@ -773,95 +756,23 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="col-md-3 col-sm-6 bottommargin">
-                    <div class="ipost clearfix">
-                        <div class="entry-image">
-                            <a href="#">
-                                <img class="image_fade" src="../../../assets/images/magazine/thumb/2.jpg" alt="Image">
-                            </a>
-                        </div>
-                        <div class="entry-title">
-                            <h3>
-                                <a href="blog-single.html">Tiêu đề, Tiêu đề. Tiêu đề</a>
-                            </h3>
-                        </div>
-                        <ul class="entry-meta clearfix">
-                            <li>
-                                <i class="icon-calendar3"></i> 10/10/2017</li>
-                            <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
-                        <!-- </ul>
-                        <div class="entry-content">
-                            <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
-                                tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- <div class="col-md-3 col-sm-6 bottommargin">
-                    <div class="ipost clearfix">
-                        <div class="entry-image">
-                            <a href="#">
-                                <img class="image_fade" src="../../../assets/images/magazine/thumb/3.jpg" alt="Image">
-                            </a>
-                        </div>
-                        <div class="entry-title">
-                            <h3>
-                                <a href="blog-single.html">Tiêu đề, Tiêu đề. Tiêu đề</a>
-                            </h3>
-                        </div>
-                        <ul class="entry-meta clearfix">
-                            <li>
-                                <i class="icon-calendar3"></i> 10/10/2017</li> -->
-                            <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
-                        <!-- </ul>
-                        <div class="entry-content">
-                            <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
-                                tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
-                        </div>
-                    </div>
-                </div> -->
-
-                <!-- <div class="col-md-3 col-sm-6 bottommargin">
-                    <div class="ipost clearfix">
-                        <div class="entry-image">
-                            <a href="#">
-                                <img class="image_fade" src="../../../assets/images/magazine/thumb/4.jpg" alt="Image">
-                            </a>
-                        </div>
-                        <div class="entry-title">
-                            <h3>
-                                <a href="blog-single.html">Tiêu đề, Tiêu đề. Tiêu đề</a>
-                            </h3>
-                        </div>
-                        <ul class="entry-meta clearfix">
-                            <li>
-                                <i class="icon-calendar3"></i> 10/10/2017</li> -->
-                            <!-- <li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li> -->
-                        <!-- </ul>
-                        <div class="entry-content">
-                            <p>Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô tả tin tức, Mô
-                                tả tin tức, Mô tả tin tức, Mô tả tin tức</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
 
-        <div class="section">
+        <div class="topmargin nobottommargin nobottomborder">
+            <div class="container clearfix">
+                <div class="heading-block center nomargin">
+                    <h3 style="color:#1ABC9C !important">Đối tác thân thiết</h3>
+                </div>
+            </div>
         </div>
 
         <div class="container clearfix">
-            <div class="heading-block center">
-                <h3> Khách hàng thân thiết</h3>
-                <div></div>
-            </div>
-
             <div id="oc-clients" class="owl-carousel image-carousel carousel-widget" data-margin="60" data-loop="true" data-nav="false"
-                data-autoplay="5000" data-pagi="false" data-items-xxs="2" data-items-xs="3" data-items-sm="4" data-items-md="5"
-                data-items-lg="6">
+                data-autoplay="2000" data-pagi="false" data-items-xxs="2" data-items-xs="3" data-items-sm="4" data-items-md="5"
+                data-items-lg="6" *ngIf="checkListPartner">
                 <div class="oc-item" *ngFor="let item of listPartner">
-                    <a href="{{ item?.URLReferences }}">
+                    <a href="{{ item?.URLReferences }}" target="_blank">
                         <img src="{{ _s.baseURL + item?.PictureURL }}" alt="{{ item?.Description }}">
                     </a>
                 </div>
