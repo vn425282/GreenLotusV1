@@ -535,7 +535,7 @@ span.middot {
 .section {
 	position: relative;
 	margin: 60px 0;
-	padding: 60px 0;
+	padding: 10px 0;
 	background-color: #F9F9F9;
 	overflow: hidden;
 }
@@ -2893,7 +2893,7 @@ body:not(.stretched) .slider-parallax .slider-parallax-inner { left: auto; }
 
 .swiper_wrapper {
 	width: 100%;
-	height: 500px;
+	height: 700px;
 	overflow: hidden;
 }
 
@@ -2902,7 +2902,7 @@ body:not(.stretched) .slider-parallax .slider-parallax-inner { left: auto; }
 .swiper_wrapper .swiper-container {
 	position: relative;
 	width:100%;
-	height:100%;
+	height:700px;
 	margin: 0;
 	background: url('../../assets/images/pattern2.png') repeat;
 }
@@ -2914,6 +2914,7 @@ body:not(.stretched) .slider-parallax .slider-parallax-inner { left: auto; }
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
+	height: 700px !important;
 }
 
 .swiper-slide [data-caption-animate] { -webkit-backface-visibility: hidden; }
@@ -3512,7 +3513,7 @@ body.stretched .container-fullwidth .breadcrumb { right: 60px !important; }
 
 .content-wrap {
 	position: relative;
-	padding: 80px 0;
+	padding: 45px 0;
 }
 
 #content .container { position: relative; }
@@ -3710,7 +3711,7 @@ body:not(.device-touch) .grid-container {
 
 .portfolio {
 	position: relative;
-	margin: 0 140px 0px 140px;
+	margin: 15px 85px -60px 105px;
 }
 
 body:not(.device-touch) .portfolio {
@@ -3740,7 +3741,7 @@ body:not(.device-touch) .portfolio {
 .portfolio-item .portfolio-image img {
 	display: block;
 	width: 100%;
-	height: auto;
+	/* height: auto; */
 }
 
 body:not(.device-touch):not(.device-xs):not(.device-xxs) .portfolio-notitle .portfolio-image img {
@@ -11146,7 +11147,7 @@ input[type=checkbox]:not(:checked) + label.error { display: block !important; }
 /* Heading Block - with Subtitle
 -----------------------------------------------------------------*/
 
-.heading-block { margin-bottom: 50px; }
+/* .heading-block { margin-bottom: 50px; } */
 
 .heading-block h1,
 .heading-block h2,
@@ -11206,11 +11207,9 @@ input[type=checkbox]:not(:checked) + label.error { display: block !important; }
 .heading-block ~ p:not(.lead) { font-size: 15px; }
 
 .heading-block:after {
-	content: '';
 	display: block;
 	margin-top: 30px;
 	width: 40px;
-	border-top: 2px solid #444;
 }
 
 .center .heading-block:after,
@@ -11918,7 +11917,6 @@ button.toast-close-button {
 #footer {
 	position: relative;
 	background-color: #EEE;
-	border-top: 5px solid rgba(0,0,0,0.2);
 }
 
 .device-lg.sticky-footer #top-bar,

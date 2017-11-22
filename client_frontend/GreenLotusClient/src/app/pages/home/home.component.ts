@@ -56,9 +56,14 @@ export class HomeComponent implements OnInit {
       console.log('getAllBlog', dataBlog);
       if (dataBlog.results) {
         let counter = 0;
+        let counterNews = 0;
         for (let item of dataBlog.results.reverse()) {
-          if (counter < 4) {
+          if (counterNews < 4 && item.Tag !== 'Dự án') {
+            if(item.Title.length > 65){
+              item.Title = item.Title.substring(0, 65) + ' ...';
+            }
             this.listNews.push(item);
+            counterNews++;
           }
           
           if(item.Tag === 'Dự án'){
@@ -96,6 +101,11 @@ export class HomeComponent implements OnInit {
       console.log('getPartner', dataPartner);
         this.listPartner = dataPartner.results;
         this.checkListPartner = true;
+        var owl = $("#oc-clients");
+        owl.owlCarousel({
+            items: dataPartner.results.length,
+            navigation: true
+        });
     });
   }
 }
