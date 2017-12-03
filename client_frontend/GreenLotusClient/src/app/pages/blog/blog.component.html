@@ -23,17 +23,17 @@
 
                 <ul>
                     <li class="">
-                        <a [routerLink]="['/pages/home']">
+                        <a href="/pages/home">
                             <div>Trang chủ</div>
                         </a>
                     </li>
                     <li class="">
-                        <a [routerLink]="['/pages/aboutus']">
+                        <a href="/pages/aboutus">
                             <div>Về chúng tôi</div>
                         </a>
                     </li>
                     <li class="current">
-                        <a [routerLink]="['/pages/blog']">
+                        <a href='/pages/blog'>
                             <div>Tin tức</div>
                         </a>
                     </li>
@@ -44,7 +44,7 @@
                     </li> -->
 
                     <li class="">
-                        <a [routerLink]="['/pages/contact']">
+                        <a href='/pages/contact'>
                             <div>Liên hệ</div>
                         </a>
                     </li>
@@ -122,9 +122,9 @@
 
                 <!-- Portfolio Items
                                                     ============================================= -->
-                <div id="portfolio" class="portfolio grid-container portfolio-3 clearfix">
+                <div id="portfolio" class="portfolio grid-container portfolio-3 clearfix" *ngIf="arrayListAllBlog?.length > 0">
 
-                    <article class="portfolio-item pf-media" [ngClass]="{'pf-icons': item.Tag == 'Tin tức', 'pf-icons-2': item.Tag == 'Sự kiện', 'pf-illustrations': item.Tag == 'Dự án', 'pf-uielements': item.Tag == 'Đối tác'}"
+                    <article class="portfolio-item pf-media" [ngClass]="{'pf-icons': item?.Tag == 'Tin tức khác', 'pf-icons-2': item?.Tag == 'Sự kiện', 'pf-illustrations': item?.Tag == 'Dự án', 'pf-uielements': item?.Tag == 'Đối tác'}"
                         *ngFor="let item of arrayListAllBlog">
                         <div class="portfolio-image">
                             <a href="portfolio-single.html">

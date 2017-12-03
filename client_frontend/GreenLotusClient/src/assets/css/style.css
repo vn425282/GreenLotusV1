@@ -2790,7 +2790,7 @@ body.side-panel-open:not(.device-xxs):not(.device-xs):not(.device-sm) .body-over
 .slider-parallax .slider-parallax-inner {
 	position: fixed;
 	width: 100%;
-	height: 100%;
+	height: 500px !important;
 }
 
 .device-touch .slider-parallax .slider-parallax-inner { position: relative; }
@@ -2893,7 +2893,7 @@ body:not(.stretched) .slider-parallax .slider-parallax-inner { left: auto; }
 
 .swiper_wrapper {
 	width: 100%;
-	height: 700px;
+	height: 500px !important;
 	overflow: hidden;
 }
 
@@ -2902,9 +2902,9 @@ body:not(.stretched) .slider-parallax .slider-parallax-inner { left: auto; }
 .swiper_wrapper .swiper-container {
 	position: relative;
 	width:100%;
-	height:700px;
+	height:525px !important;
 	margin: 0;
-	background: url('../../assets/images/pattern2.png') repeat;
+	background-color: rgb(233, 226, 213);
 }
 
 .swiper_wrapper .swiper-slide {
@@ -2914,7 +2914,7 @@ body:not(.stretched) .slider-parallax .slider-parallax-inner { left: auto; }
 	background-repeat: no-repeat;
 	background-size: cover;
 	overflow: hidden;
-	height: 700px !important;
+	height: 500px !important;
 }
 
 .swiper-slide [data-caption-animate] { -webkit-backface-visibility: hidden; }
@@ -3711,7 +3711,7 @@ body:not(.device-touch) .grid-container {
 
 .portfolio {
 	position: relative;
-	margin: 15px 85px -60px 105px;
+	margin: 15px 40px -60px 55px;
 }
 
 body:not(.device-touch) .portfolio {
@@ -3741,7 +3741,7 @@ body:not(.device-touch) .portfolio {
 .portfolio-item .portfolio-image img {
 	display: block;
 	width: 100%;
-	/* height: auto; */
+	height: 195px;
 }
 
 body:not(.device-touch):not(.device-xs):not(.device-xxs) .portfolio-notitle .portfolio-image img {
