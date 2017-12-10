@@ -23,6 +23,7 @@ export class HomeComponent implements OnInit {
   public listAboutPeople = [];
   public listNews = [];
   public listProject = [];
+  public listEvents = [];
   public checkListPartner = false;
 
   ngOnInit(): void {
@@ -58,9 +59,9 @@ export class HomeComponent implements OnInit {
         let counter = 0;
         let counterNews = 0;
         for (let item of dataBlog.results.reverse()) {
-          if (counterNews < 4 && item.Tag !== 'Dự án') {
-            if(item.Title.length > 65){
-              item.Title = item.Title.substring(0, 65) + ' ...';
+          if (counterNews < 4 && item.Tag !== 'Dự án' && item.Tag !== 'Sự kiện') {
+            if(item.Title.length > 40){
+              item.Title = item.Title.substring(0, 40) + ' ...';
             }
             this.listNews.push(item);
             counterNews++;
@@ -68,10 +69,19 @@ export class HomeComponent implements OnInit {
           
           if(item.Tag === 'Dự án'){
             if(counter < 8){
-              if(item.Title.length > 65){
-                item.Title = item.Title.substring(0, 65) + ' ...';
+              if(item.Title.length > 40){
+                item.Title = item.Title.substring(0, 40) + ' ...';
               }
               this.listProject.push(item);
+            }
+          }
+
+          if(item.Tag === 'Sự kiện'){
+            if(counter < 4){
+              if(item.Title.length > 40){
+                item.Title = item.Title.substring(0, 40) + ' ...';
+              }
+              this.listEvents.push(item);
             }
           }
           counter++;

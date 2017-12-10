@@ -30,7 +30,7 @@ export class ContactComponent implements OnInit {
   ngOnInit() {
     // let s = this.document.createElement("script");
     // s.type = "text/javascript";
-    // s.src = "https://maps.google.com/maps/api/js?key=AIzaSyDMxJ92oBkSnVNHFX3R8XhtYQPEgk1_IiI";
+    // s.src = "https://maps.google.com/maps/api/js?key=AIzaSyA8DtzfYgQjEWDZnD2ezfB77AfiK4ZOzBQ";
     // this.myScript.nativeElement.appendChild(s);
 
     // let a = this.document.createElement("script");
