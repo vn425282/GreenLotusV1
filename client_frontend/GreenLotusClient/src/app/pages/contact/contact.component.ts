@@ -44,14 +44,14 @@ export class ContactComponent implements OnInit {
     this.myScript.nativeElement.appendChild(g);
 
     $('#google-map').gMap({
-      address: 'LẦU 36, TÒA NHÀ BITEXCO , 2 HẢI TRIỀU , P.BẾN NGHÉ, QUẬN I, TP.HCM',
+      address: '2 Hải Triều, Bến Nghé, Quận 1, Hồ Chí Minh, Vietnam',
       maptype: 'TERRAIN',
       zoom: 16,
       latitude: 10.7717431,
       longitude: 106.7035884,
       markers: [
         {
-          address: "LẦU 36, TÒA NHÀ BITEXCO , 2 HẢI TRIỀU , P.BẾN NGHÉ, QUẬN I, TP.HCM",
+          address: "2 Hải Triều, Bến Nghé, Quận 1, Hồ Chí Minh, Vietnam",
           html: '<div style="width: 300px;"><h4 style="margin-bottom: 8px;">Xin chào, chúng tôi là <span style="font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">CÔNG TY TNHH THƯƠNG MẠI DỊCH VỤ GREEN LOTUS</span></h4><p class="nobottommargin">Địa chỉ <strong>LẦU 36, TÒA NHÀ BITEXCO , 2 HẢI TRIỀU , P.BẾN NGHÉ, QUẬN I, TP.HCM</strong></p></div>',
           icon: {
             image: "../../../assets/images/icons/map-icon-red.png",
