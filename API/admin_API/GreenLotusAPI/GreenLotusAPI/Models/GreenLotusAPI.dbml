@@ -60,6 +60,12 @@
       <Association Name="Role_User" Member="Users" ThisKey="ID_Role" OtherKey="ID_Role" Type="User" />
     </Type>
   </Table>
+  <Table Name="dbo.Banner" Member="Banners">
+    <Type Name="Banner">
+      <Column Name="ID_Banner" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BannerURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.addAboutPeople" Method="addAboutPeople">
     <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
     <Parameter Name="RoleName" Parameter="roleName" Type="System.String" DbType="NVarChar(200)" />
@@ -233,5 +239,19 @@
     <Parameter Name="Description" Parameter="description" Type="System.String" DbType="NVarChar(MAX)" />
     <Parameter Name="Lang" Parameter="lang" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.addBanner" Method="addBanner">
+    <Parameter Name="BannerURL" Parameter="bannerURL" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteBanner" Method="deleteBanner">
+    <Parameter Name="ID_Banner" Parameter="iD_Banner" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.getBanner" Method="getBanner">
+    <ElementType Name="getBannerResult">
+      <Column Name="ID_Banner" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BannerURL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

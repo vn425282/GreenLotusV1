@@ -34,6 +34,17 @@
                             </div>
                         </div>
 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group"> 
+                                    <label><b>Hình đại diện trang chủ</b><br> - Lưu ý, hệ thống giữ nguyên size của logo ( không tự động cân chỉnh ) nên vui lòng chọn ảnh có size phù hợp cho website.<br> - Chỉ chấp nhận file jpg, png và gif</label>
+                                    <input type="file" (change)="logoChangeFU($event)" #logo>
+                                    <p><b>Xem trước</b></p>
+                                    <img [src]="srcPreview">
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="text-center">
                             <button type="button" class="btn btn-info btn-fill btn-wd" (click)="back();">
                                 Quay lại

@@ -48,6 +48,9 @@ namespace GreenLotusAPI.Models
     partial void InsertRole(Role instance);
     partial void UpdateRole(Role instance);
     partial void DeleteRole(Role instance);
+    partial void InsertBanner(Banner instance);
+    partial void UpdateBanner(Banner instance);
+    partial void DeleteBanner(Banner instance);
     #endregion
 		
 		public GreenLotusAPIDataContext() : 
@@ -125,6 +128,14 @@ namespace GreenLotusAPI.Models
 			get
 			{
 				return this.GetTable<Role>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Banner> Banners
+		{
+			get
+			{
+				return this.GetTable<Banner>();
 			}
 		}
 		
@@ -266,6 +277,27 @@ namespace GreenLotusAPI.Models
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_AboutPartner, pictureURL, uRLRefercens, description, lang);
 			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.addBanner")]
+		public int addBanner([global::System.Data.Linq.Mapping.ParameterAttribute(Name="BannerURL", DbType="NVarChar(MAX)")] string bannerURL)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), bannerURL);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.deleteBanner")]
+		public int deleteBanner([global::System.Data.Linq.Mapping.ParameterAttribute(Name="ID_Banner", DbType="Int")] System.Nullable<int> iD_Banner)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), iD_Banner);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.getBanner")]
+		public ISingleResult<getBannerResult> getBanner()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
+			return ((ISingleResult<getBannerResult>)(result.ReturnValue));
 		}
 	}
 	
@@ -1382,6 +1414,92 @@ namespace GreenLotusAPI.Models
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Banner")]
+	public partial class Banner : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID_Banner;
+		
+		private string _BannerURL;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnID_BannerChanging(int value);
+    partial void OnID_BannerChanged();
+    partial void OnBannerURLChanging(string value);
+    partial void OnBannerURLChanged();
+    #endregion
+		
+		public Banner()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Banner", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID_Banner
+		{
+			get
+			{
+				return this._ID_Banner;
+			}
+			set
+			{
+				if ((this._ID_Banner != value))
+				{
+					this.OnID_BannerChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Banner = value;
+					this.SendPropertyChanged("ID_Banner");
+					this.OnID_BannerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BannerURL", DbType="NVarChar(MAX)")]
+		public string BannerURL
+		{
+			get
+			{
+				return this._BannerURL;
+			}
+			set
+			{
+				if ((this._BannerURL != value))
+				{
+					this.OnBannerURLChanging(value);
+					this.SendPropertyChanging();
+					this._BannerURL = value;
+					this.SendPropertyChanged("BannerURL");
+					this.OnBannerURLChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	public partial class checkLoginResult
 	{
 		
@@ -2279,6 +2397,50 @@ namespace GreenLotusAPI.Models
 				if ((this._ID_Role != value))
 				{
 					this._ID_Role = value;
+				}
+			}
+		}
+	}
+	
+	public partial class getBannerResult
+	{
+		
+		private int _ID_Banner;
+		
+		private string _BannerURL;
+		
+		public getBannerResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Banner", DbType="Int NOT NULL")]
+		public int ID_Banner
+		{
+			get
+			{
+				return this._ID_Banner;
+			}
+			set
+			{
+				if ((this._ID_Banner != value))
+				{
+					this._ID_Banner = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BannerURL", DbType="NVarChar(MAX)")]
+		public string BannerURL
+		{
+			get
+			{
+				return this._BannerURL;
+			}
+			set
+			{
+				if ((this._BannerURL != value))
+				{
+					this._BannerURL = value;
 				}
 			}
 		}

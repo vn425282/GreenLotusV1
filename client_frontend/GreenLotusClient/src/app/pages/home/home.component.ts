@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   public listNews = [];
   public listProject = [];
   public listEvents = [];
+  public listBanner = [];
   public checkListPartner = false;
 
   ngOnInit(): void {
@@ -36,6 +37,11 @@ export class HomeComponent implements OnInit {
     // a.type = "text/javascript";
     // a.src = "../../assets/js/functions.js";
     // this.myScript.nativeElement.appendChild(a);
+    // load data
+    this.loadPartner();
+    this.loadClientSaid();
+    this.loadBlogByNewsType();
+    this.loadBanner();
   }
 
   constructor( @Inject(DOCUMENT) public document,
@@ -44,11 +50,6 @@ export class HomeComponent implements OnInit {
     public aboutPeopleService: AboutPeopleService,
     public blogService: BlogService,
     public _s: SharedService) {
-
-    // load data
-    this.loadPartner();
-    this.loadClientSaid();
-    this.loadBlogByNewsType();
   }
 
   // load projects and blogs 
@@ -60,25 +61,25 @@ export class HomeComponent implements OnInit {
         let counterNews = 0;
         for (let item of dataBlog.results.reverse()) {
           if (counterNews < 4 && item.Tag !== 'Dự án' && item.Tag !== 'Sự kiện') {
-            if(item.Title.length > 40){
+            if (item.Title.length > 40) {
               item.Title = item.Title.substring(0, 40) + ' ...';
             }
             this.listNews.push(item);
             counterNews++;
           }
-          
-          if(item.Tag === 'Dự án'){
-            if(counter < 8){
-              if(item.Title.length > 40){
+
+          if (item.Tag === 'Dự án') {
+            if (counter < 8) {
+              if (item.Title.length > 40) {
                 item.Title = item.Title.substring(0, 40) + ' ...';
               }
               this.listProject.push(item);
             }
           }
 
-          if(item.Tag === 'Sự kiện'){
-            if(counter < 4){
-              if(item.Title.length > 40){
+          if (item.Tag === 'Sự kiện') {
+            if (counter < 4) {
+              if (item.Title.length > 40) {
                 item.Title = item.Title.substring(0, 40) + ' ...';
               }
               this.listEvents.push(item);
@@ -109,13 +110,20 @@ export class HomeComponent implements OnInit {
   loadPartner() {
     this.partnerService.getPartner().subscribe(dataPartner => {
       console.log('getPartner', dataPartner);
-        this.listPartner = dataPartner.results;
-        this.checkListPartner = true;
-        var owl = $("#oc-clients");
-        owl.owlCarousel({
-            items: dataPartner.results.length,
-            navigation: true
-        });
+      this.listPartner = dataPartner.results;
+      this.checkListPartner = true;
+      var owl = $("#oc-clients");
+      owl.owlCarousel({
+        items: dataPartner.results.length,
+        navigation: true
+      });
+    });
+  }
+
+  loadBanner(){
+    this.partnerService.getBanner().subscribe(dataBanner => {
+      console.log('getBanner', dataBanner);
+      this.listBanner = dataBanner.results;
     });
   }
 }

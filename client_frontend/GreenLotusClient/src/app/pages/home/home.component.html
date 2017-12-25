@@ -130,23 +130,7 @@
 
         <div class="swiper-container swiper-parent">
             <div class="swiper-wrapper">
-                <div class="swiper-slide dark" style="background-image: url('../../../assets/img/s2.png'); width: 400px !important;">
-                    <div class="container clearfix">
-                        <div class="slider-caption slider-caption-center">
-                            <!-- <h2 data-caption-animate="fadeInUp">Chào mừng đến với Green Lotus </h2> -->
-                            <p data-caption-animate="fadeInUp" data-caption-delay="200">Green Lotus là đơn vị đầu tư - tư vấn các lĩnh vực trong thương mại</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide dark" style="background-image: url('../../../assets/img/s3.png'); width: 400px !important;">
-                    <div class="container clearfix">
-                        <div class="slider-caption slider-caption-center">
-                            <!-- <h2 data-caption-animate="fadeInUp">Chào mừng đến với Green Lotus </h2> -->
-                            <!-- <p data-caption-animate="fadeInUp" data-caption-delay="200">Green Lotus là đơn vị đầu tư - tư vấn các lĩnh vực trong thương mại</p> -->
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide dark" style="background-image: url('../../../assets/img/s1.png'); width: 400px !important;">
+                <div class="swiper-slide dark" [style.background-image]="'url('+ _s.baseURL + item.BannerURL+')'" *ngFor="let item of listBanner">
                     <div class="container clearfix">
                         <div class="slider-caption slider-caption-center">
                             <!-- <h2 data-caption-animate="fadeInUp">Chào mừng đến với Green Lotus </h2> -->

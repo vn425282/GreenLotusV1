@@ -28,6 +28,7 @@ export class UpdateAboutUsComponent implements OnInit {
   public noticeMessage = '';
   public shortPathURL = '';
   public myCurrentAboutUs: any;
+  public myCurrentParner: any;
 
   constructor(public _p: AboutUsService, public router: Router, public _shared: SharedService, private activatedRoute: ActivatedRoute, ) { }
 
@@ -51,6 +52,43 @@ export class UpdateAboutUsComponent implements OnInit {
       });
     } catch (e) {
       console.log('Error at update-aboutus', e);
+    }
+  }
+  
+  logoChangeFU($event): void {
+    this.readThis($event.target, 'end');
+  }
+
+  readThis(inputValue: any, state: any): void {
+    try {
+      this.flagSpinner = true;
+      let textBase64: string;
+      const file: File = inputValue.files[0];
+      const fileExtend = file.name.split('.').pop().toUpperCase();
+      if (fileExtend === 'JPG' || fileExtend === 'PNG' || fileExtend === 'GIF') {
+        const myReader: FileReader = new FileReader();
+
+        myReader.onloadend = ((e) => {
+          textBase64 = myReader.result;
+          this.myLogoBase64String = textBase64;
+          // this.srcPreview = textBase64;
+          this._shared.uploadBase64ImgToServer(textBase64, 'partner', fileExtend).subscribe(data => {
+            this.srcPreview = this._shared.getBaseURLWithoutFlash() + data.results;
+            this.myCurrentParner.PictureURL = data.results;
+            this.shortPathURL = data.results;
+            this.flagSpinner = false;
+            // this.srcPreview = data;
+          });
+        });
+        myReader.readAsDataURL(file);
+      } else {
+        this.noticeModal.open();
+        this.noticeMessage = 'Vui lòng chọn file hình có đuôi .jpg, .png, .gif';
+      }
+    } catch (e) {
+      console.log('error at: readThis() ----- add-partner.component.ts', e);
+      this.myLogoBase64String = '';
+      this.srcPreview = '';
     }
   }
 

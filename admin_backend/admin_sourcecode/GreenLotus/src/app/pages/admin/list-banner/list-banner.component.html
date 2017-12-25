@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="header">
+                    <h4 class="title">Danh sách Banner ( hình nền )</h4>
+                    <!-- <b>* Gõ vào ô tìm kiếm từ bạn muốn và bấm Enter để tìm kiếm</b> -->
+                </div>
+                <div class="header">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <button type="button" class="btn btn-info btn-fill btn-wd" (click)="addBanner();">
+                                Thêm Banner mới
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                    </div>
+                </div>
+                <div class="content table-responsive table-full-width">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of tableData1.dataRows">
+                                <td *ngFor="let cell of row">
+                                    <div [innerHTML]="cell"></div>
+                                </td>
+                                <td>
+                                    <!-- <a routerLink='/pages/admin/update-banner/{{row[0].replace("BN-", "")}}'>Cập nhập</a> || -->
+                                    <a href='javascript:void(0)' (click)='showPopUpConfirm(row[0].replace("BN-", ""))'>Xóa</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<modal #noticeModal>
+    <modal-header [show-close]="true">
+        <h4 class="modal-title">Thông báo</h4>
+    </modal-header>
+    <modal-body>
+        {{ noticeMessage }}
+        <input type="button" class="btn btn-info btn-fill btn-wd" value="Xác nhận xóa !" (click)="deleteBanner()">
+    </modal-body>
+    <modal-footer [show-default-buttons]="false"></modal-footer>
+</modal>
+<spinner-component [spinnerShow]="flagSpinner"></spinner-component>

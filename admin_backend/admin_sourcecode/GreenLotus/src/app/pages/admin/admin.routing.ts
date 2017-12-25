@@ -25,6 +25,7 @@ export const routes: Routes = [
             { path: 'list-partner', loadChildren: './listpartner/listpartner.module#ListPartnerModule' },
             { path: 'add-user', loadChildren: './idcardregister/idcardregister.module#ListPartnerModule' },
             { path: 'add-partner', loadChildren: './add-partner/add-partner.module#AddPartnerModule' },
+            { path: 'add-banner', loadChildren: './add-banner/add-banner.module#AddBannerModule' },
             { path: 'add-people', loadChildren: './add-people/add-people.module#AddPeopleModule' },
             { path: 'add-clientsaid', loadChildren: './add-clientsaid/add-clientsaid.module#AddClientSaidModule' },
             { path: 'add-news', loadChildren: './add-news/add-news.module#AddNewsModule' },
@@ -38,6 +39,7 @@ export const routes: Routes = [
             { path: 'list-aboutus', loadChildren: './aboutus/aboutus.module#AboutUsModule' },
             { path: 'list-clientsaid', loadChildren: './listclientsaid/listclientsaid.module#ListClientSaidModule' },
             { path: 'list-news', loadChildren: './list-news/list-news.module#ListNewsModule' },
+            { path: 'list-banner', loadChildren: './list-banner/list-banner.module#ListBannerModule' }
         ]
     }
 ]

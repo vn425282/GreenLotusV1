@@ -15,6 +15,7 @@ export const ROUTES: RouteInfo[] = [
     // { path: 'idcardregister', title: 'Đăng ký người dùng',  icon:'ti-user', class: '' },
     { path: 'list-user', title: 'Danh sách người dùng',  icon: 'ti-view-list-alt', class: '' },
     { path: 'list-partner', title: 'Danh sách đối tác',  icon: 'ti-view-list-alt', class: '' },
+    { path: 'list-banner', title: 'Danh sách Banner',  icon: 'ti-pencil-alt2', class: '' },
     { path: 'list-people', title: 'Giới thiệu con người',  icon: 'ti-user', class: '' },
     { path: 'list-clientsaid', title: 'Khách hàng nói gì',  icon: 'ti-user', class: '' },
     { path: 'list-aboutus', title: 'Về chúng tôi',  icon:'ti-text', class: '' },

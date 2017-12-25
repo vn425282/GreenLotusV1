@@ -111,7 +111,7 @@ namespace GreenLotusAPI.Controllers
 
         [Route("api/shared/uploadBase64ImgToServer")]
         [HttpPost]
-        public IHttpActionResult UploadBase64ImgToServer(Base64ImageObj base64Image)
+        public IHttpActionResult UploadBase64ImgToServer(Base64ImageObj base64Image, int type = 1)
         {
             try
             {
@@ -120,9 +120,18 @@ namespace GreenLotusAPI.Controllers
                 string path = Directory.GetCurrentDirectory();
 
                 Int32 unixTimestamp = (Int32)(DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds;
-                var filePath = HttpContext.Current.Server.MapPath("~/Image/" + base64Image.prefix + "-" + unixTimestamp + "." + base64Image.extend);
-                File.WriteAllBytes(filePath, bytes);
-                return Ok(new { results = "/Image/" + base64Image.prefix + "-" + unixTimestamp + "." + base64Image.extend });
+                if (type == 1)
+                {
+                    var filePath = HttpContext.Current.Server.MapPath("~/Image/" + base64Image.prefix + "-" + unixTimestamp + "." + base64Image.extend);
+                    File.WriteAllBytes(filePath, bytes);
+                    return Ok(new { results = "/Image/" + base64Image.prefix + "-" + unixTimestamp + "." + base64Image.extend });
+                }
+                else
+                {
+                    var filePath = HttpContext.Current.Server.MapPath("~/Image/" + base64Image.prefix + "-" + unixTimestamp + "." + base64Image.extend);
+                    File.WriteAllBytes(filePath, bytes);
+                    return Ok(new { results = "/Image/" + base64Image.prefix + "-" + unixTimestamp + "." + base64Image.extend });
+                }
             }
             catch (Exception e)
             {
@@ -258,7 +267,7 @@ namespace GreenLotusAPI.Controllers
             return Ok(new { results = status });
         }
 
-        private void sendEmailViaWebApi()
+        /* private void sendEmailViaWebApi()
         {
             string subject = "Email Subject";
             string body = "Email body";
@@ -274,6 +283,30 @@ namespace GreenLotusAPI.Controllers
             SmtpServer.Credentials = new System.Net.NetworkCredential("shahid@reckonbits.com.pk", "your password");
             SmtpServer.EnableSsl = false;
             SmtpServer.Send(mail);
+        } */
+
+        [Route("api/banner/addBanner")]
+        [HttpPost]
+        public IHttpActionResult AddBanner(Banner b)
+        {
+            var status = db.addBanner(b.BannerURL);
+            return Ok(new { results = status });
+        }
+
+        [Route("api/banner/deleteBanner")]
+        [HttpPost]
+        public IHttpActionResult DeleteBanner(Banner b)
+        {
+            var status = db.deleteBanner(b.ID_Banner);
+            return Ok(new { results = status });
+        }
+
+        [Route("api/banner/getBanner")]
+        [HttpGet]
+        public IHttpActionResult GetBanner()
+        {
+            var listBanner = db.getBanner().ToList<getBannerResult>();
+            return Ok(new { results = listBanner });
         }
     }
 }
