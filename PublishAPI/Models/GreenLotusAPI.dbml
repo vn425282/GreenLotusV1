@@ -234,4 +234,12 @@
     <Parameter Name="Lang" Parameter="lang" Type="System.String" DbType="NVarChar(50)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.addBanner" Method="addBanner">
+    <Parameter Name="BannerURL" Parameter="bannerURL" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.deleteBanner" Method="deleteBanner">
+    <Parameter Name="ID_Banner" Parameter="iD_Banner" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>
